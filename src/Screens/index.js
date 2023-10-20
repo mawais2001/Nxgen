@@ -8,3 +8,7 @@ export {default as Social} from './Social/Social';
 export {default as DetailArticle} from './Library/DetailArticle';
 export {default as AllArticles} from './Library/AllArticles';
 export {default as Setting} from './Setting/Setting';
+export {default as ContactUs} from './Contact/ContactUs';
+export {default as ChangePassword} from './other/ChangePassword';
+export {default as PrivacyPolicy} from './other/PrivacyPolicy';
+export {default as TermsOfUse} from './other/TermsOfUse';

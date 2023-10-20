@@ -21,6 +21,7 @@ import {useNavigation} from '@react-navigation/native';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import ListHorizont from '../../Components/Setting/ListHorizont';
 import {ButtonCompo} from '../../Components';
+import navigationStrings from '../../Navigation/navigationStrings';
 
 function Setting(props) {
   const navigation = useNavigation();
@@ -78,21 +79,25 @@ function Setting(props) {
         title="Contact Us"
         icon={imagePath.call}
         iconRight={imagePath.forward}
+        onPress={() => navigation.navigate(navigationStrings.ContactUs)}
       />
       <ListHorizont
         title="Chnage Password"
         icon={imagePath.password}
         iconRight={imagePath.forward}
+        onPress={() => navigation.navigate(navigationStrings.ChangePassword)}
       />
       <ListHorizont
         title="Privacy Policy"
         icon={imagePath.email2}
         iconRight={imagePath.forward}
+        onPress={() => navigation.navigate(navigationStrings.PrivacyPolicy)}
       />
       <ListHorizont
         title="Terms of Use"
         icon={imagePath.email2}
         iconRight={imagePath.forward}
+        onPress={() => navigation.navigate(navigationStrings.TermsOfUse)}
       />
       <View
         style={{

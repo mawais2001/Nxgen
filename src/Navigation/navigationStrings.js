@@ -12,4 +12,8 @@ export default {
   DetailArticle: 'DetailArticle',
   AllArticles: 'AllArticles',
   Setting: 'Setting',
+  ContactUs: 'ContactUs',
+  ChangePassword: 'ChangePassword',
+  PrivacyPolicy: 'PrivacyPolicy',
+  TermsOfUse: 'TermsOfUse',
 };

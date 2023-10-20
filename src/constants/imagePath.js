@@ -51,4 +51,10 @@ export default {
   path1: require('../assets/images/Setting/Path1.png'),
   path: require('../assets/images/Setting/Path.png'),
   settingBackground: require('../assets/images/Setting/Mask.png'),
+
+  // -----------Contact us Image import here
+  contactus: require('../assets/images/contact/contactus.png'),
+  gmail: require('../assets/images/contact/gmail.png'),
+  telegram: require('../assets/images/contact/telegram.png'),
+  twitter: require('../assets/images/contact/twitter.png'),
 };

@@ -17,7 +17,8 @@ const ListHorizont = ({icon, onPress, title, iconRight}) => {
         paddingVertical: moderateVerticalScale(6),
         marginBottom: moderateVerticalScale(20),
       }}
-      activeOpacity={0.8}>
+      activeOpacity={0.8}
+      onPress={onPress}>
       <View
         style={{
           flexDirection: 'row',

@@ -28,6 +28,26 @@ function MainStack(props) {
         component={Screens.AllArticles}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name={navigationStrings.ContactUs}
+        component={Screens.ContactUs}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.ChangePassword}
+        component={Screens.ChangePassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.PrivacyPolicy}
+        component={Screens.PrivacyPolicy}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.TermsOfUse}
+        component={Screens.TermsOfUse}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }
