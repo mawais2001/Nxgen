@@ -1,16 +1,166 @@
-import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {
+  React,
+  View,
+  StyleSheet,
+  Text,
+  FastImage,
+  imagePath,
+  fontFamily,
+  scale,
+  moderateScale,
+  moderateVerticalScale,
+  Image,
+  Alert,
+  TouchableOpacity,
+  StatusBar,
+  colors,
+  ScrollView,
+  FlatList,
+} from '../../common/CommonImports';
+import {useNavigation} from '@react-navigation/native';
+import Ionicon from 'react-native-vector-icons/Ionicons';
+import ListHorizont from '../../Components/Setting/ListHorizont';
+import {ButtonCompo} from '../../Components';
 
 function Setting(props) {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <Text>Setting file</Text>
+      <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
+      <View
+        style={{
+          paddingVertical: moderateVerticalScale(22),
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}>
+        <TouchableOpacity
+          style={styles.headerIconContainer}
+          onPress={() => {
+            navigation.goBack();
+          }}>
+          <Ionicon name="chevron-back" size={16} color={colors.black} />
+        </TouchableOpacity>
+        <Text style={styles.headerTextStyle}>Settings</Text>
+      </View>
+      <View style={styles.profileDetailCard}>
+        <Image source={imagePath.path1} style={styles.backgroundImage} />
+        <Image source={imagePath.path} style={styles.backgroundImage} />
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            paddingHorizontal: moderateScale(20),
+          }}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <FastImage
+              source={imagePath.avatar}
+              style={styles.profileImageStyle}
+            />
+            <View style={{marginLeft: moderateScale(20)}}>
+              <Text style={styles.profileTextStyle}>Awais Yaseen</Text>
+              <TouchableOpacity style={styles.btnStyle} activeOpacity={0.5}>
+                <Text style={styles.profileTextStyle}>Edit Profile</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </View>
+
+      <View
+        style={{
+          height: moderateVerticalScale(2),
+          backgroundColor: colors.gray,
+          marginVertical: moderateVerticalScale(30),
+        }}
+      />
+      <ListHorizont
+        title="Contact Us"
+        icon={imagePath.call}
+        iconRight={imagePath.forward}
+      />
+      <ListHorizont
+        title="Chnage Password"
+        icon={imagePath.password}
+        iconRight={imagePath.forward}
+      />
+      <ListHorizont
+        title="Privacy Policy"
+        icon={imagePath.email2}
+        iconRight={imagePath.forward}
+      />
+      <ListHorizont
+        title="Terms of Use"
+        icon={imagePath.email2}
+        iconRight={imagePath.forward}
+      />
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'flex-end',
+          alignItems: 'center',
+          marginBottom: moderateVerticalScale(20),
+        }}>
+        <ButtonCompo title="Logout" textStyle={{fontWeight: '700'}} />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+    backgroundColor: colors.theme,
+    paddingHorizontal: moderateScale(20),
+  },
+  headerIconContainer: {
+    width: moderateScale(24),
+    height: moderateScale(24),
+    backgroundColor: colors.yellow,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: moderateScale(12),
+  },
+  headerTextStyle: {
+    fontSize: scale(18),
+    color: colors.black,
+    fontWeight: '500',
+    marginLeft: moderateScale(14),
+  },
+  profileDetailCard: {
+    backgroundColor: colors.black,
+    // paddingHorizontal: moderateScale(20),
+    position: 'relative',
+    width: '100%',
+    height: '14%',
+    overflow: 'hidden',
+    borderRadius: moderateScale(18),
+  },
+  backgroundImage: {
+    position: 'absolute',
+    width: '100%',
+    height: '70%',
+    resizeMode: 'stretch', // Adjust this property as needed
+    bottom: 0,
+  },
+  profileImageStyle: {
+    width: moderateScale(45),
+    height: moderateScale(45),
+  },
+  profileTextStyle: {
+    fontSize: scale(14),
+    color: colors.white,
+    fontWeight: '500',
+  },
+  btnStyle: {
+    borderWidth: 1,
+    borderColor: colors.white,
+    alignItems: 'center',
+    paddingVertical: moderateVerticalScale(2),
+    borderRadius: moderateScale(4),
+    marginTop: moderateVerticalScale(4),
+    justifyContent: 'center',
+  },
 });
 
 export default Setting;

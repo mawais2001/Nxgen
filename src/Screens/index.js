@@ -7,3 +7,4 @@ export {default as Signals} from './Signals/Signals';
 export {default as Social} from './Social/Social';
 export {default as DetailArticle} from './Library/DetailArticle';
 export {default as AllArticles} from './Library/AllArticles';
+export {default as Setting} from './Setting/Setting';

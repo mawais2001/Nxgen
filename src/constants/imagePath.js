@@ -21,6 +21,11 @@ export default {
   search: require('../assets/images/Icons/search.png'),
   back: require('../assets/images/Icons/back.png'),
   avatar: require('../assets/images/Icons/man.png'),
+  forward: require('../assets/images/Icons/forward.png'),
+  email2: require('../assets/images/Icons/email2.png'),
+  password: require('../assets/images/Icons/password.png'),
+  call: require('../assets/images/Icons/call.png'),
+  user2: require('../assets/images/Icons/user2.png'),
 
   // -----------Signals file Icons import here ---------
   frame: require('../assets/images/Signals/Frame.png'),
@@ -41,4 +46,9 @@ export default {
   // -----------Socail file Image import here
   illustration: require('../assets/images/Social/illustration.png'),
   vector: require('../assets/images/Social/vector.png'),
+
+  // -----------Setting Image import here
+  path1: require('../assets/images/Setting/Path1.png'),
+  path: require('../assets/images/Setting/Path.png'),
+  settingBackground: require('../assets/images/Setting/Mask.png'),
 };

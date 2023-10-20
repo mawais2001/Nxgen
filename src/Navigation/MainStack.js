@@ -3,7 +3,6 @@ import * as Screens from '../Screens/index';
 import navigationStrings from './navigationStrings';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import TabRoutes from './TabRoutes';
-import Setting from '../Screens/Setting/Setting';
 const Stack = createNativeStackNavigator();
 
 function MainStack(props) {
@@ -15,8 +14,8 @@ function MainStack(props) {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Setting"
-        component={Setting}
+        name={navigationStrings.Setting}
+        component={Screens.Setting}
         options={{headerShown: false}}
       />
       <Stack.Screen

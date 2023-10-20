@@ -62,45 +62,7 @@ function Insingts(props) {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      <HeaderCompo
-        onPress={() => navigation.navigate('Setting')}
-        searchText={searchText}
-        setSearchText={setSearchText}
-      />
-      {/* <View style={styles.mainContainer}>
-        <ScrollView
-          style={styles.scrollerConatianer}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}>
-          <TouchableOpacity style={styles.itemContainer}>
-            <Text style={styles.itemText}>All</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.itemContainer}>
-            <Text style={styles.itemText}>Ethereum</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.itemContainer}>
-            <Text style={styles.itemText}>Ripple</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.itemContainer}>
-            <Text style={styles.itemText}>Dpgecoin</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.itemContainer}>
-            <Text style={styles.itemText}>Binance</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.itemContainer}>
-            <Text style={styles.itemText}>Cardano</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.itemContainer}>
-            <Text style={styles.itemText}>Polkadot</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.itemContainer}>
-            <Text style={styles.itemText}>Solana</Text>
-          </TouchableOpacity>
-        </ScrollView>
-      </View> */}
+      <HeaderCompo searchText={searchText} setSearchText={setSearchText} />
 
       <ItemListHorizontal
         list={[

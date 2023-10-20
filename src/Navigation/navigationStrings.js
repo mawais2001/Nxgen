@@ -11,4 +11,5 @@ export default {
   TabRoutes: 'TabRoutes',
   DetailArticle: 'DetailArticle',
   AllArticles: 'AllArticles',
+  Setting: 'Setting',
 };
