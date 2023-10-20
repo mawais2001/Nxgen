@@ -1,0 +1,16 @@
+export default {
+  white: '#FFFFFF',
+  black: '#000000',
+  gray: '#A6A6A8',
+  yellow: '#E4D400',
+  lightRed: '#FF253B',
+  lightGreen: '#0ACA6D',
+  borderColor: '#E1E1EC',
+  iconBgColor: '#E7E9EC',
+  loginBtn: '#EEEEEF',
+  loginBgColor: '#F3F3FB',
+  searchbarBg: '#F5F4F8',
+  searchbarBorder: '#CBCFD6',
+  theme: '#F5F4F8',
+  itemSelectorbg: '#E7E7E7',
+};
