@@ -20,7 +20,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import ListHorizont from '../../Components/Setting/ListHorizont';
-import {ButtonCompo} from '../../Components';
+import {ButtonCompo, HeaderWIthLabel} from '../../Components';
 import navigationStrings from '../../Navigation/navigationStrings';
 
 function Setting(props) {
@@ -29,21 +29,7 @@ function Setting(props) {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      <View
-        style={{
-          paddingVertical: moderateVerticalScale(22),
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}>
-        <TouchableOpacity
-          style={styles.headerIconContainer}
-          onPress={() => {
-            navigation.goBack();
-          }}>
-          <Ionicon name="chevron-back" size={16} color={colors.black} />
-        </TouchableOpacity>
-        <Text style={styles.headerTextStyle}>Settings</Text>
-      </View>
+      <HeaderWIthLabel label="Settings" />
       <View style={styles.profileDetailCard}>
         <Image source={imagePath.path1} style={styles.backgroundImage} />
         <Image source={imagePath.path} style={styles.backgroundImage} />

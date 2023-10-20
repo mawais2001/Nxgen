@@ -96,4 +96,18 @@ export default {
       ],
     },
   ],
+  oneArticle: {
+    id: 1,
+    title: 'Bitcoin Recovery: Yes, it can be done -  and legally too',
+    time: 'Oct 11, 2023',
+    img: 'https://img.capital.com/imgs/articles/800x600x1/shutterstock_1902390253_18.jpg',
+    description: `You have been deceived. However, rest assured that you are not alone in this predicament. It is a common occurrence where a factoid is repeated frequently by numerous individuals, leading our mammalian brains to take the cognitive shortcut of accepting it as truth, given that many others have also accepted it as such. Today, one of the most widely accepted truths about digital currency has been debunked: Bitcoin is now recoverable.
+    Surprising as it may seem, lost or stolen bitcoins can now recoverable.
+    Surprising as it may seem, lost or stolen bitcoins can now be recovered through a legal process, which contradicts one of the most fundamental principles that "crypto" advocates have been advocating for the past 12 years.But how is this possible?
+    In truth, it has always been technically feasible. The challenge was in practically getting all the block producers to enforce the rules and do so in a manner that is compatible with existing legal systems. Without legal backing, merely performing the technical aspect would be tantamount to theft.`,
+    otherImages: [
+      'https://bitcoinist.com/wp-content/uploads/2019/01/shutterstock_1204616239.jpg',
+      'https://www.newsbtc.com/wp-content/uploads/2019/02/bitcoin-shutterstock_704336857.jpg',
+    ],
+  },
 };

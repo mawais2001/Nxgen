@@ -1,4 +1,4 @@
-import {ButtonCompo, TextInputCompo} from '../../Components';
+import {ButtonCompo, TextInputCompo, HeaderWIthLabel} from '../../Components';
 import {
   React,
   View,
@@ -69,21 +69,7 @@ function AllArticles(props) {
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          paddingVertical: moderateVerticalScale(22),
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}>
-        <TouchableOpacity
-          style={styles.headerIconContainer}
-          onPress={() => {
-            navigation.goBack();
-          }}>
-          <Ionicon name="chevron-back" size={16} color={colors.black} />
-        </TouchableOpacity>
-        <Text style={styles.headerTextStyle}>Articles</Text>
-      </View>
+      <HeaderWIthLabel label="Articles" />
 
       <View>
         <TextInputCompo
@@ -115,20 +101,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.theme,
     paddingHorizontal: moderateScale(20),
-  },
-  headerIconContainer: {
-    width: moderateScale(24),
-    height: moderateScale(24),
-    backgroundColor: colors.yellow,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: moderateScale(12),
-  },
-  headerTextStyle: {
-    fontSize: scale(18),
-    color: colors.black,
-    fontWeight: '500',
-    marginLeft: moderateScale(14),
   },
   cardContainer: {
     marginBottom: moderateVerticalScale(12),

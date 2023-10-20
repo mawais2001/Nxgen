@@ -1,4 +1,4 @@
-import {ButtonCompo} from '../../Components';
+import {ButtonCompo, HeaderWIthLabel} from '../../Components';
 import {
   React,
   View,
@@ -24,15 +24,7 @@ function DetailArticle(props) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <View style={{paddingVertical: moderateVerticalScale(22)}}>
-        <TouchableOpacity
-          style={styles.headerIconContainer}
-          onPress={() => {
-            navigation.goBack();
-          }}>
-          <Ionicon name="chevron-back" size={16} color={colors.black} />
-        </TouchableOpacity>
-      </View>
+      <HeaderWIthLabel />
       <View style={styles.descriptionContainer}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <Text style={styles.descriptionTextStyle}> {data.description} </Text>
@@ -70,14 +62,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.theme,
     paddingHorizontal: moderateScale(20),
-  },
-  headerIconContainer: {
-    width: moderateScale(24),
-    height: moderateScale(24),
-    backgroundColor: colors.yellow,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: moderateScale(12),
   },
   descriptionContainer: {
     flex: 1,

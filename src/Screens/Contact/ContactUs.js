@@ -1,4 +1,4 @@
-import {ButtonCompo} from '../../Components';
+import {ButtonCompo, HeaderWIthLabel} from '../../Components';
 import {
   React,
   View,
@@ -26,7 +26,7 @@ function ContactUs(props) {
 
   return (
     <View style={styles.container}>
-      <View style={{paddingVertical: moderateVerticalScale(22)}}>
+      {/* <View style={{paddingVertical: moderateVerticalScale(22)}}>
         <TouchableOpacity
           style={styles.headerIconContainer}
           onPress={() => {
@@ -35,7 +35,15 @@ function ContactUs(props) {
           activeOpacity={0.5}>
           <Ionicon name="chevron-back" size={24} color={colors.black} />
         </TouchableOpacity>
-      </View>
+      </View> */}
+      <HeaderWIthLabel
+        style={{
+          width: moderateScale(34),
+          height: moderateScale(34),
+          borderRadius: moderateScale(34 / 2),
+        }}
+        iconSize={24}
+      />
       <View style={{alignItems: 'center', paddingHorizontal: moderateScale(8)}}>
         <FastImage
           source={imagePath.contactus}
