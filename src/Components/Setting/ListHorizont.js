@@ -7,16 +7,22 @@ import {
   moderateScale,
   moderateVerticalScale,
 } from 'react-native-size-matters';
-const ListHorizont = ({icon, onPress, title, iconRight}) => {
+const ListHorizont = ({
+  icon,
+  onPress,
+  title,
+  iconRight,
+  textRight = '',
+  style,
+  lefticonContainerStyle,
+  leftIconStyle,
+  headingStyle,
+  rightTextStyle,
+  rightIconSyle,
+}) => {
   return (
     <TouchableOpacity
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingVertical: moderateVerticalScale(6),
-        marginBottom: moderateVerticalScale(20),
-      }}
+      style={{...styles.container, ...style}}
       activeOpacity={0.8}
       onPress={onPress}>
       <View
@@ -24,42 +30,69 @@ const ListHorizont = ({icon, onPress, title, iconRight}) => {
           flexDirection: 'row',
           alignItems: 'center',
         }}>
-        <View
-          style={{
-            width: moderateScale(42),
-            height: moderateScale(42),
-            backgroundColor: colors.yellow,
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: moderateScale(8),
-          }}>
+        <View style={{...styles.iconContainerStyle, ...lefticonContainerStyle}}>
           <FastImage
             source={icon}
-            style={{width: moderateScale(18), height: moderateScale(18)}}
+            style={{...styles.leftIconStyle, ...leftIconStyle}}
             resizeMode={FastImage.resizeMode.contain}
           />
         </View>
-        <Text
-          style={{
-            fontSize: scale(14),
-            fontWeight: '500',
-            color: colors.black,
-            marginLeft: moderateScale(12),
-          }}>
-          {title}
-        </Text>
+        <Text style={{...styles.headingStyle, ...headingStyle}}>{title}</Text>
       </View>
-      <FastImage
-        source={iconRight}
-        style={{width: 8, height: 16}}
-        resizeMode={FastImage.resizeMode.contain}
-      />
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        {textRight.length > 0 ? (
+          <Text style={{...styles.rightTextStyle, ...rightTextStyle}}>
+            {textRight}
+          </Text>
+        ) : null}
+        <FastImage
+          source={iconRight}
+          style={{...styles.rightIconSyle, ...rightIconSyle}}
+          resizeMode={FastImage.resizeMode.contain}
+        />
+      </View>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: moderateVerticalScale(6),
+    marginBottom: moderateVerticalScale(20),
+  },
+  iconContainerStyle: {
+    width: moderateScale(42),
+    height: moderateScale(42),
+    backgroundColor: colors.yellow,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: moderateScale(8),
+  },
+  leftIconStyle: {
+    width: moderateScale(18),
+    height: moderateScale(18),
+  },
+  headingStyle: {
+    fontSize: scale(14),
+    fontWeight: '500',
+    color: colors.black,
+    marginLeft: moderateScale(12),
+  },
+  rightTextStyle: {
+    paddingHorizontal: moderateScale(14),
+    fontSize: scale(12),
+    color: colors.placeholderColor,
+    fontWeight: '500',
+  },
+  rightIconSyle: {
+    // width: 8,
+    // height: 16,
+    width: moderateScale(12),
+    height: moderateScale(12),
+  },
 });
 
 export default ListHorizont;

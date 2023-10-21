@@ -16,4 +16,5 @@ export default {
   ChangePassword: 'ChangePassword',
   PrivacyPolicy: 'PrivacyPolicy',
   TermsOfUse: 'TermsOfUse',
+  EditProfile: 'EditProfile',
 };

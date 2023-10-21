@@ -13,3 +13,4 @@ export {default as LibraryHeader} from './Library/LibraryHeader';
 export {default as FeaturedCourses} from './Library/FeaturedCourses';
 export {default as Videos} from './Library/Videos';
 export {default as HeaderWIthLabel} from './Headers/HeaderWIthLabel';
+export {default as ListHorizont} from './Setting/ListHorizont';

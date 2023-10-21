@@ -48,6 +48,11 @@ function MainStack(props) {
         component={Screens.TermsOfUse}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name={navigationStrings.EditProfile}
+        component={Screens.EditProfile}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }

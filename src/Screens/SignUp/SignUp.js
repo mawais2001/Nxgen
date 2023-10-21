@@ -24,9 +24,12 @@ import {
 } from '../../common/CommonImports';
 import TextInputLabel from '../../Components/TextInputLabel';
 import ButtonWithIcon from '../../Components/ButtonWithIcon';
+import navigationStrings from '../../Navigation/navigationStrings';
+import {useNavigation} from '@react-navigation/native';
 
 function SignUp(props) {
   const [isShow, setIsShow] = useState(true);
+  const navigation = useNavigation();
 
   return (
     <ImageBackground
@@ -93,7 +96,9 @@ function SignUp(props) {
           <Text style={{color: colors.black, fontSize: scale(12)}}>
             Aleady a User?
           </Text>
-          <TouchableOpacity activeOpacity={0.5}>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => navigation.navigate(navigationStrings.LOGIN)}>
             <Text
               style={{
                 color: colors.yellow,

@@ -27,6 +27,7 @@ export default {
   call: require('../assets/images/Icons/call.png'),
   user2: require('../assets/images/Icons/user2.png'),
   check: require('../assets/images/Icons/check.png'),
+  down: require('../assets/images/Icons/down.png'),
 
   // -----------Signals file Icons import here ---------
   frame: require('../assets/images/Signals/Frame.png'),

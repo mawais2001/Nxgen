@@ -40,13 +40,24 @@ function Setting(props) {
             paddingHorizontal: moderateScale(20),
           }}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <FastImage
-              source={imagePath.avatar}
-              style={styles.profileImageStyle}
-            />
+            <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={() =>
+                navigation.navigate(navigationStrings.EditProfile)
+              }>
+              <FastImage
+                source={imagePath.avatar}
+                style={styles.profileImageStyle}
+              />
+            </TouchableOpacity>
             <View style={{marginLeft: moderateScale(20)}}>
               <Text style={styles.profileTextStyle}>Awais Yaseen</Text>
-              <TouchableOpacity style={styles.btnStyle} activeOpacity={0.5}>
+              <TouchableOpacity
+                style={styles.btnStyle}
+                activeOpacity={0.5}
+                onPress={() =>
+                  navigation.navigate(navigationStrings.EditProfile)
+                }>
                 <Text style={styles.profileTextStyle}>Edit Profile</Text>
               </TouchableOpacity>
             </View>

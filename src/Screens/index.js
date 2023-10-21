@@ -12,3 +12,4 @@ export {default as ContactUs} from './Contact/ContactUs';
 export {default as ChangePassword} from './other/ChangePassword';
 export {default as PrivacyPolicy} from './other/PrivacyPolicy';
 export {default as TermsOfUse} from './other/TermsOfUse';
+export {default as EditProfile} from './Profile/EditProfile';
