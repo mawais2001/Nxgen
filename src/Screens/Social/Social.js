@@ -17,41 +17,54 @@ import {
   colors,
   ScrollView,
   ImageBackground,
+  useState,
 } from '../../common/CommonImports';
+import SelectCoins from './other/SelectCoins';
 
 function Social(props) {
+  const [selected, setSelected] = useState(false);
+  const handleSelectCoins = () => {
+    setSelected(true);
+  };
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      <View />
-      <View />
-      <View />
-      <View style={{alignItems: 'center'}}>
-        <FastImage
-          source={imagePath.illustration}
-          style={styles.ImageStyle}
-          resizeMode={FastImage.resizeMode.contain}
-        />
-        <Text style={styles.textStyle}>
-          {`Connect with Global
+      {!selected ? (
+        <View style={{flex: 1, justifyContent: 'space-between'}}>
+          <View />
+          <View />
+          <View />
+          <View style={{alignItems: 'center'}}>
+            <FastImage
+              source={imagePath.illustration}
+              style={styles.ImageStyle}
+              resizeMode={FastImage.resizeMode.contain}
+            />
+            <Text style={styles.textStyle}>
+              {`Connect with Global
           Cyrpto User`}
-        </Text>
-      </View>
-      <View />
-      <View
-        style={{
-          alignItems: 'center',
-          marginBottom: moderateVerticalScale(20),
-        }}>
-        <ButtonCompo
-          title="Connect Now"
-          textStyle={{
-            color: colors.black,
-            fontWeight: '600',
-            fontSize: scale(13),
-          }}
-        />
-      </View>
+            </Text>
+          </View>
+          <View />
+          <View
+            style={{
+              alignItems: 'center',
+              marginBottom: moderateVerticalScale(20),
+            }}>
+            <ButtonCompo
+              title="Connect Now"
+              textStyle={{
+                color: colors.black,
+                fontWeight: '600',
+                fontSize: scale(13),
+              }}
+              onPress={handleSelectCoins}
+            />
+          </View>
+        </View>
+      ) : (
+        <SelectCoins setSelected={setSelected} />
+      )}
     </View>
   );
 }
@@ -60,7 +73,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.theme,
-    justifyContent: 'space-between',
     paddingBottom: moderateVerticalScale(20),
   },
   ImageStyle: {
@@ -72,7 +84,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: colors.black,
     marginTop: moderateVerticalScale(20),
-    // textAlign: 'center',
   },
 });
 

@@ -13,4 +13,5 @@ export default {
   searchbarBorder: '#CBCFD6',
   theme: '#F5F4F8',
   itemSelectorbg: '#E7E7E7',
+  searchbox: 'rgba(166, 166, 168, 0.16)',
 };

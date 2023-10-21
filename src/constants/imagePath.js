@@ -26,6 +26,7 @@ export default {
   password: require('../assets/images/Icons/password.png'),
   call: require('../assets/images/Icons/call.png'),
   user2: require('../assets/images/Icons/user2.png'),
+  check: require('../assets/images/Icons/check.png'),
 
   // -----------Signals file Icons import here ---------
   frame: require('../assets/images/Signals/Frame.png'),
@@ -57,4 +58,14 @@ export default {
   gmail: require('../assets/images/contact/gmail.png'),
   telegram: require('../assets/images/contact/telegram.png'),
   twitter: require('../assets/images/contact/twitter.png'),
+
+  // -----------Crypo Currencies Icons import here ---------
+  Bitcoin: require('../assets/images/CryptoIcons/Bitcoin.png'),
+  BNB: require('../assets/images/CryptoIcons/BNB.png'),
+  Cardano: require('../assets/images/CryptoIcons/Cardano.png'),
+  Ethereum: require('../assets/images/CryptoIcons/Ethereum.png'),
+  Solana: require('../assets/images/CryptoIcons/Solana.png'),
+  Tether: require('../assets/images/CryptoIcons/Tether.png'),
+  Usdcoin: require('../assets/images/CryptoIcons/Usdcoin.png'),
+  XRP: require('../assets/images/CryptoIcons/XRP.png'),
 };
