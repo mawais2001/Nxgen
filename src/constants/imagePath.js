@@ -28,6 +28,10 @@ export default {
   user2: require('../assets/images/Icons/user2.png'),
   check: require('../assets/images/Icons/check.png'),
   down: require('../assets/images/Icons/down.png'),
+  upperArrow: require('../assets/images/Icons/upper-arrow.png'),
+  up: require('../assets/images/Icons/up.png'),
+  polygon: require('../assets/images/Icons/polygon.png'),
+  polygonDown: require('../assets/images/Icons/polygon-down.png'),
 
   // -----------Signals file Icons import here ---------
   frame: require('../assets/images/Signals/Frame.png'),
