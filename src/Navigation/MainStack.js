@@ -3,14 +3,20 @@ import * as Screens from '../Screens/index';
 import navigationStrings from './navigationStrings';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import TabRoutes from './TabRoutes';
+import DrawerNavigator from './DrawerNavigator';
 const Stack = createNativeStackNavigator();
 
 function MainStack(props) {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      {/* <Stack.Screen
         name={navigationStrings.TabRoutes}
         component={TabRoutes}
+        options={{headerShown: false}}
+      /> */}
+      <Stack.Screen
+        name="DrawerNavi"
+        component={DrawerNavigator}
         options={{headerShown: false}}
       />
       <Stack.Screen

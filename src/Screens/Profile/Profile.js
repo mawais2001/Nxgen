@@ -85,11 +85,12 @@ function Profile(props) {
               <Text
                 style={{
                   backgroundColor: colors.yellow,
-                  paddingHorizontal: moderateScale(12),
+                  paddingHorizontal: moderateScale(10),
                   paddingVertical: moderateVerticalScale(2),
                   borderRadius: moderateScale(8),
                   color: colors.white,
                   fontWeight: '400',
+                  fontSize: scale(10),
                 }}>
                 Try 7 Days Free
               </Text>

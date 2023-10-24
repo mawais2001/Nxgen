@@ -224,9 +224,9 @@ const styles = StyleSheet.create({
     // elevation: 2,
   },
   bottomNaivgatorText: {
-    fontSize: scale(12),
+    fontSize: scale(10),
     color: colors.black,
-    fontWeight: '600',
+    fontWeight: '500',
     marginTop: moderateScale(2),
   },
   bottomtabsStyle: {

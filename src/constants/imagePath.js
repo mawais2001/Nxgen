@@ -32,6 +32,8 @@ export default {
   up: require('../assets/images/Icons/up.png'),
   polygon: require('../assets/images/Icons/polygon.png'),
   polygonDown: require('../assets/images/Icons/polygon-down.png'),
+  unlock: require('../assets/images/Icons/unlock.png'),
+  setting: require('../assets/images/Icons/setting.png'),
 
   // -----------Signals file Icons import here ---------
   frame: require('../assets/images/Signals/Frame.png'),
@@ -73,4 +75,14 @@ export default {
   Tether: require('../assets/images/CryptoIcons/Tether.png'),
   Usdcoin: require('../assets/images/CryptoIcons/Usdcoin.png'),
   XRP: require('../assets/images/CryptoIcons/XRP.png'),
+
+  // -----------Drawer Navigation Image import here
+  antenna: require('../assets/images/Drawer/antenna.png'),
+  calculator: require('../assets/images/Drawer/calculator.png'),
+  category: require('../assets/images/Drawer/category.png'),
+  shuttle: require('../assets/images/Drawer/shuttle.png'),
+  news: require('../assets/images/Drawer/news.png'),
+  info: require('../assets/images/Drawer/info.png'),
+  contact: require('../assets/images/Drawer/contact-us.png'),
+  drawerLogo: require('../assets/images/Drawer/drawer-logo.png'),
 };

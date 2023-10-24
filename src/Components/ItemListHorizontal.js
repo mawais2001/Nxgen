@@ -19,11 +19,13 @@ const ItemListHorizontal = ({
   selected,
   setSelected,
   myStyle,
+  style,
 }) => {
   return (
-    <View style={styles.mainItemContainer}>
+    <View style={{...styles.mainItemContainer, ...style}}>
       <ScrollView
-        style={styles.scrollerConatianer}
+        // style={styles.scrollerConatianer}
+        contentContainerStyle={styles.scrollerConatianer}
         horizontal={true}
         showsHorizontalScrollIndicator={false}>
         {list.map((item, index) => {
@@ -64,21 +66,20 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(30),
     paddingVertical: moderateScale(10),
     paddingHorizontal: moderateScale(10),
-    // flexDirection: 'row',
     height: moderateScale(50),
-    // justifyContent: 'space-between',
   },
   itemContainer: {
     backgroundColor: colors.itemSelectorbg,
     marginRight: moderateScale(8),
     paddingHorizontal: moderateScale(14),
-    // paddingVertical: moderateScale(8),
     height: moderateScale(30),
     borderRadius: moderateScale(30),
     justifyContent: 'center',
   },
   scrollerConatianer: {
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   itemText: {
     fontSize: scale(12),

@@ -9,8 +9,6 @@ function App(props) {
   return (
     <View style={styles.container}>
       <Routes />
-      {/* <Screens.Library /> */}
-      {/* <Text>jdkj</Text> */}
     </View>
   );
 }

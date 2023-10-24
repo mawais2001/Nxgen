@@ -62,7 +62,11 @@ function Insingts(props) {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      <HeaderCompo searchText={searchText} setSearchText={setSearchText} />
+      <HeaderCompo
+        searchText={searchText}
+        setSearchText={setSearchText}
+        onPress={() => navigation.openDrawer()}
+      />
 
       <ItemListHorizontal
         list={[

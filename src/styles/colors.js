@@ -15,4 +15,6 @@ export default {
   itemSelectorbg: '#E7E7E7',
   searchbox: 'rgba(166, 166, 168, 0.16)',
   placeholderColor: '#B8B8B8',
+  drawerNaviBgColor: '#FBFBFB',
+  drawerTextColor: '#5E5E5E',
 };

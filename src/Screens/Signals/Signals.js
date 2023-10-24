@@ -14,10 +14,13 @@ import {
 import TrackedData from '../../dummyData/TrackedData';
 import * as AllCompo from '../../Components/index';
 import SignalData from '../../dummyData/SignalData';
+import {useNavigation} from '@react-navigation/native';
 
 function Signals(props) {
   const [selected, setSelected] = useState('Tracked');
   const [searchText, setSearchText] = useState('');
+  const navigation = useNavigation();
+
   const trackData = TrackedData.Tracked;
   const shortTermData = SignalData.ShortTerm;
   const longTermData = SignalData.LongTerm;
@@ -26,7 +29,11 @@ function Signals(props) {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      <HeaderCompo searchText={searchText} setSearchText={setSearchText} />
+      <HeaderCompo
+        searchText={searchText}
+        setSearchText={setSearchText}
+        onPress={() => navigation.openDrawer()}
+      />
       <AllCompo.ItemListHorizontal
         list={['Tracked', 'Short Term', 'Long Term', 'Archived']}
         selected={selected}

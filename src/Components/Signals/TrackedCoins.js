@@ -15,10 +15,20 @@ import {
   FastImage,
   imagePath,
 } from '../../common/CommonImports';
+import ItemListHorizontal from '../ItemListHorizontal';
+import ItemListShowerHori from './ItemListShowerHori';
 
 const TrackedCoins = ({trackData, selected}) => {
   const [clickedCardIndex, setClickedCardIndex] = useState(null);
-  const [fullDeatil, setFullDetail] = useState([]);
+  const [fullDetail, setFullDetail] = useState(false);
+  const [detailItem, setDetailItem] = useState(null);
+  const [selectItem, setSelectItem] = useState('Live Data');
+
+  const handleFullDetail = item => {
+    setFullDetail(true);
+    setDetailItem(item);
+  };
+
   const HandleDetail = () => {
     const [showDetail, setShowDetail] = useState(true);
 
@@ -284,11 +294,11 @@ const TrackedCoins = ({trackData, selected}) => {
                     style={[
                       styles.cardButtonStyle,
                       {marginRight: moderateScale(6)},
-                    ]}>
+                    ]}
+                    onPress={() => handleFullDetail(item)}>
                     <Text
                       style={{color: colors.black, fontWeight: '500'}}
-                      activeOpacity={0.5}
-                      onPress={() => Alert.alert('Detail')}>
+                      activeOpacity={0.5}>
                       Details
                     </Text>
                   </TouchableOpacity>
@@ -303,95 +313,233 @@ const TrackedCoins = ({trackData, selected}) => {
           </TouchableOpacity>
           {clickedCardIndex === index ? <HandleDetail /> : null}
         </View>
-        {/* {showDetail ? <HandleDetail /> : null} */}
       </View>
     );
   };
 
   return (
     <View style={styles.trackedContainer}>
-      <View style={styles.trackedHeaderStyle}>
-        <Text style={styles.headingText}>
-          {selected} Coins {`(${trackData.length})`}
-        </Text>
-      </View>
-      <FlatList
-        data={trackData}
-        renderItem={renderItem}
-        // renderItem={({item}) => {
-        //   return (
-        //     <View style={styles.cardContainerStyle}>
-        //       <View style={styles.cardContentContainer}>
-        //         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        //           <Image
-        //             source={item.img}
-        //             style={{
-        //               width: moderateScale(40),
-        //               height: moderateScale(40),
-        //             }}
-        //           />
-        //           <View style={{marginLeft: moderateScale(14)}}>
-        //             <Text
-        //               style={{
-        //                 fontSize: 14,
-        //                 color: colors.black,
-        //                 fontWeight: '500',
-        //               }}>
-        //               {item.coinName}
-        //             </Text>
-        //             <Text
-        //               style={{
-        //                 fontSize: 12,
-        //                 color:
-        //                   item.risk === 'Mid Risk'
-        //                     ? colors.yellow
-        //                     : item.risk === 'Low Risk'
-        //                     ? colors.lightGreen
-        //                     : colors.lightRed,
-        //                 fontWeight: '500',
-        //               }}>
-        //               {item.risk}
-        //             </Text>
-        //           </View>
-        //         </View>
-        //         <View style={{}}>
-        //           <Text
-        //             style={{
-        //               fontSize: scale(12),
-        //               color: colors.lightGreen,
-        //               alignSelf: 'flex-end',
-        //             }}>
-        //             3.75%
-        //           </Text>
-        //           <View
-        //             style={{
-        //               flexDirection: 'row',
-        //               alignItems: 'center',
-        //               marginTop: moderateVerticalScale(4),
-        //             }}>
-        //             <TouchableOpacity
-        //               style={[
-        //                 styles.cardButtonStyle,
-        //                 {marginRight: moderateScale(6)},
-        //               ]}>
-        //               <Text style={{color: colors.black, fontWeight: '500'}}>
-        //                 Details
-        //               </Text>
-        //             </TouchableOpacity>
-        //             <TouchableOpacity style={styles.cardButtonStyle}>
-        //               <Text style={{color: colors.black, fontWeight: '500'}}>
-        //                 Untrack
-        //               </Text>
-        //             </TouchableOpacity>
-        //           </View>
-        //         </View>
-        //       </View>
-        //     </View>
-        //   );
-        // }}
-        keyExtractor={(item, index) => index.toString()}
-        showsVerticalScrollIndicator={false}
-      />
+      {fullDetail ? (
+        <View style={styles.itemDetailContainer}>
+          <TouchableOpacity
+            style={{
+              width: 32,
+              height: 32,
+              borderRadius: 16,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: colors.yellow,
+              marginBottom: moderateVerticalScale(14),
+            }}
+            onPress={() => setFullDetail(false)}>
+            <Image
+              source={imagePath.back}
+              style={{width: 16, height: 16}}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+          <View>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <FastImage
+                  source={detailItem.img}
+                  style={{
+                    width: moderateScale(50),
+                    height: moderateScale(50),
+                  }}
+                  resizeMode={FastImage.resizeMode.contain}
+                />
+                <Text style={styles.itemDetailHeadingStyle}>
+                  {detailItem.coinName}
+                </Text>
+              </View>
+              <View style={{}}>
+                <Text
+                  style={[
+                    styles.detailGreenTextStyle,
+                    {
+                      fontWeight: '600',
+                      fontSize: scale(12),
+                    },
+                  ]}>
+                  {detailItem.stock}
+                </Text>
+                <View style={{alignItems: 'center', flexDirection: 'row'}}>
+                  <Text
+                    style={[
+                      styles.detailGreenTextStyle,
+                      {
+                        fontWeight: '600',
+                        fontSize: scale(12),
+                      },
+                    ]}>
+                    0.0008 USD
+                  </Text>
+                  <FastImage
+                    source={imagePath.upperArrow}
+                    style={{
+                      width: moderateScale(12),
+                      height: moderateScale(12),
+                      marginHorizontal: moderateScale(4),
+                    }}
+                    resizeMode={FastImage.resizeMode.contain}
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
+          <Text style={styles.itemPriceText}>Current Price 0.222</Text>
+          <View
+            style={{
+              height: moderateVerticalScale(2),
+              backgroundColor: colors.borderColor,
+            }}
+          />
+          <View style={{marginTop: moderateVerticalScale(26)}}>
+            <View style={styles.detailTextListContainer}>
+              <Text
+                style={[
+                  styles.detailHeading,
+                  {
+                    fontWeight: '700',
+                  },
+                ]}>
+                Target 1
+              </Text>
+              <TouchableOpacity style={styles.deatilCopyBtnStyle}>
+                <Text
+                  style={[
+                    styles.detailGreenTextStyle,
+                    {
+                      fontSize: scale(12),
+                      color: colors.yellow,
+                      fontWeight: '900',
+                    },
+                  ]}>
+                  Copy
+                </Text>
+              </TouchableOpacity>
+              <Text
+                style={[
+                  styles.detailHeading,
+                  {
+                    fontWeight: '400',
+                    color: colors.black,
+                  },
+                ]}>
+                0.434
+              </Text>
+              <Text style={styles.detailGreenTextStyle}>102.8%</Text>
+            </View>
+            <View style={styles.detailTextListContainer}>
+              <Text
+                style={[
+                  styles.detailHeading,
+                  {
+                    fontWeight: '700',
+                  },
+                ]}>
+                Target 2
+              </Text>
+              <TouchableOpacity style={styles.deatilCopyBtnStyle}>
+                <Text
+                  style={[
+                    styles.detailGreenTextStyle,
+                    {
+                      fontSize: scale(12),
+                      color: colors.yellow,
+                      fontWeight: '900',
+                    },
+                  ]}>
+                  Copy
+                </Text>
+              </TouchableOpacity>
+              <Text
+                style={[
+                  styles.detailHeading,
+                  {
+                    fontWeight: '400',
+                    color: colors.black,
+                  },
+                ]}>
+                0.524
+              </Text>
+              <Text style={styles.detailGreenTextStyle}>143.8%</Text>
+            </View>
+            <View style={styles.detailTextListContainer}>
+              <Text
+                style={[
+                  styles.detailHeading,
+                  {
+                    fontWeight: '700',
+                  },
+                ]}>
+                Target 3
+              </Text>
+              <TouchableOpacity style={styles.deatilCopyBtnStyle}>
+                <Text
+                  style={[
+                    styles.detailGreenTextStyle,
+                    {
+                      fontSize: scale(12),
+                      color: colors.yellow,
+                      fontWeight: '900',
+                    },
+                  ]}>
+                  Copy
+                </Text>
+              </TouchableOpacity>
+              <Text
+                style={[
+                  styles.detailHeading,
+                  {
+                    fontWeight: '400',
+                    color: colors.black,
+                  },
+                ]}>
+                0.874
+              </Text>
+              <Text style={styles.detailGreenTextStyle}>305.8%</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              alignSelf: 'center',
+              paddingVertical: moderateVerticalScale(16),
+            }}>
+            <ItemListHorizontal
+              list={['Live Data', 'Analytics']}
+              myStyle={{
+                paddingHorizontal: moderateScale(20),
+                borderRadius: moderateScale(8),
+                marginRight: moderateScale(2),
+              }}
+              selected={selectItem}
+              setSelected={setSelectItem}
+              style={{
+                borderRadius: moderateScale(8),
+                paddingVertical: moderateScale(6),
+                height: moderateScale(44),
+              }}
+            />
+          </View>
+        </View>
+      ) : (
+        <View style={{flex: 1}}>
+          <View style={styles.trackedHeaderStyle}>
+            <Text style={styles.headingText}>
+              {selected} Coins {`(${trackData.length})`}
+            </Text>
+          </View>
+          <FlatList
+            data={trackData}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
+      )}
     </View>
   );
 };
@@ -466,6 +614,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: moderateVerticalScale(6),
+  },
+  itemDetailContainer: {
+    paddingHorizontal: moderateScale(10),
+    marginVertical: moderateVerticalScale(14),
+    marginHorizontal: moderateScale(10),
+    borderWidth: 2,
+    borderColor: colors.borderColor,
+    borderRadius: moderateScale(14),
+    paddingVertical: moderateVerticalScale(16),
+  },
+  itemDetailHeadingStyle: {
+    fontSize: scale(14),
+    color: colors.black,
+    fontWeight: '600',
+    marginLeft: moderateScale(14),
+  },
+  itemPriceText: {
+    fontSize: scale(14),
+    color: colors.black,
+    fontWeight: '500',
+    paddingVertical: moderateVerticalScale(8),
   },
 });
 

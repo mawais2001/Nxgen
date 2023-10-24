@@ -79,7 +79,7 @@ function Setting(props) {
         onPress={() => navigation.navigate(navigationStrings.ContactUs)}
       />
       <ListHorizont
-        title="Chnage Password"
+        title="Change Password"
         icon={imagePath.password}
         iconRight={imagePath.forward}
         onPress={() => navigation.navigate(navigationStrings.ChangePassword)}

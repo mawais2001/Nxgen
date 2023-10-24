@@ -13,21 +13,34 @@ import {
   ScrollView,
 } from '../../common/CommonImports';
 import * as AllCompo from '../../Components/index';
+import {useNavigation} from '@react-navigation/native';
+
 function Library(props) {
   const [selected, setSelected] = useState('Academy');
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      <AllCompo.LibraryHeader title="Your Crypto Library" />
+      <AllCompo.LibraryHeader
+        title="Your Crypto Library"
+        onPress={() => navigation.openDrawer()}
+      />
       <View style={{marginVertical: moderateVerticalScale(6)}} />
       <AllCompo.ItemListHorizontal
         list={['Academy', 'Videos']}
         selected={selected}
         setSelected={setSelected}
         myStyle={{
-          paddingHorizontal: moderateScale(48),
+          paddingHorizontal: moderateScale(40),
+          // width: '100%',
+          flex: 1,
         }}
+        style={
+          {
+            // paddingHorizontal: moderateScale(16),
+          }
+        }
       />
       {/* <AllCompo.Academy /> */}
 
