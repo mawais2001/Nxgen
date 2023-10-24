@@ -17,4 +17,5 @@ export default {
   PrivacyPolicy: 'PrivacyPolicy',
   TermsOfUse: 'TermsOfUse',
   EditProfile: 'EditProfile',
+  HowToUseApp: 'HowToUseApp',
 };

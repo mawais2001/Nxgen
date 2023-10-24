@@ -59,6 +59,11 @@ function MainStack(props) {
         component={Screens.EditProfile}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name={navigationStrings.HowToUseApp}
+        component={Screens.HowToUseApp}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }

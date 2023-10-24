@@ -71,7 +71,11 @@ function CustomDrawer(props) {
           paddingHorizontal: moderateScale(16),
           marginTop: moderateVerticalScale(16),
         }}>
-        <DrawerItemsList label="How to use the App" icon={imagePath.info} />
+        <DrawerItemsList
+          label="How to use the App"
+          icon={imagePath.info}
+          onPress={() => navigation.navigate(navigationStrings.HowToUseApp)}
+        />
         <DrawerItemsList label="Signals Results" icon={imagePath.antenna} />
         <DrawerItemsList label="Crypto News" icon={imagePath.news} />
         <DrawerItemsList label="Crypto Categories" icon={imagePath.category} />
