@@ -26,15 +26,15 @@ const styles = StyleSheet.create({
     marginBottom: moderateVerticalScale(26),
   },
   iconStyle: {
-    width: moderateScale(24),
-    height: moderateScale(24),
+    width: moderateScale(18),
+    height: moderateScale(18),
     tintColor: colors.drawerTextColor,
   },
   drawerItemTextStyle: {
-    fontSize: scale(12),
+    fontSize: scale(10),
     color: colors.drawerTextColor,
-    fontWeight: '700',
-    marginLeft: moderateScale(20),
+    fontWeight: '600',
+    marginLeft: moderateScale(14),
   },
 });
 

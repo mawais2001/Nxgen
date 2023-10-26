@@ -17,4 +17,5 @@ export default {
   placeholderColor: '#B8B8B8',
   drawerNaviBgColor: '#FBFBFB',
   drawerTextColor: '#5E5E5E',
+  blue: 'dodgerblue',
 };

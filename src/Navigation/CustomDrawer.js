@@ -47,7 +47,7 @@ function CustomDrawer(props) {
             }}>
             <Image
               source={imagePath.unlock}
-              style={{width: moderateScale(20), height: moderateScale(20)}}
+              style={{width: moderateScale(14), height: moderateScale(14)}}
               resizeMode="contain"
             />
             <Text style={styles.desciptionStyle}>
@@ -76,7 +76,11 @@ function CustomDrawer(props) {
           icon={imagePath.info}
           onPress={() => navigation.navigate(navigationStrings.HowToUseApp)}
         />
-        <DrawerItemsList label="Signals Results" icon={imagePath.antenna} />
+        <DrawerItemsList
+          label="Signals Results"
+          icon={imagePath.antenna}
+          onPress={() => navigation.navigate(navigationStrings.SignalResult)}
+        />
         <DrawerItemsList label="Crypto News" icon={imagePath.news} />
         <DrawerItemsList label="Crypto Categories" icon={imagePath.category} />
         <DrawerItemsList
@@ -180,17 +184,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   profileImageStyle: {
-    width: moderateScale(48),
-    height: moderateScale(48),
-    borderRadius: moderateScale(48 / 2),
+    width: moderateScale(40),
+    height: moderateScale(40),
+    borderRadius: moderateScale(40 / 2),
   },
   profileNameStyle: {
-    fontSize: scale(16),
+    fontSize: scale(12),
     fontWeight: '400',
     color: colors.black,
   },
   desciptionStyle: {
-    fontSize: scale(12),
+    fontSize: scale(8),
     fontWeight: '400',
     color: colors.gray,
     width: '80%',
@@ -206,7 +210,7 @@ const styles = StyleSheet.create({
     marginVertical: moderateVerticalScale(10),
   },
   btnTextStyle: {
-    fontSize: scale(16),
+    fontSize: scale(12),
     fontWeight: '500',
     color: colors.black,
   },

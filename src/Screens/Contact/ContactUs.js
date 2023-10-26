@@ -26,16 +26,6 @@ function ContactUs(props) {
 
   return (
     <View style={styles.container}>
-      {/* <View style={{paddingVertical: moderateVerticalScale(22)}}>
-        <TouchableOpacity
-          style={styles.headerIconContainer}
-          onPress={() => {
-            navigation.goBack();
-          }}
-          activeOpacity={0.5}>
-          <Ionicon name="chevron-back" size={24} color={colors.black} />
-        </TouchableOpacity>
-      </View> */}
       <HeaderWIthLabel
         style={{
           width: moderateScale(34),

@@ -18,4 +18,5 @@ export default {
   TermsOfUse: 'TermsOfUse',
   EditProfile: 'EditProfile',
   HowToUseApp: 'HowToUseApp',
+  SignalResult: 'SignalResult',
 };

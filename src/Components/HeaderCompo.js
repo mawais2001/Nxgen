@@ -23,7 +23,11 @@ const HeaderCompo = ({onPress, searchText, setSearchText}) => {
         style={styles.IconStyle}
         activeOpacity={0.5}
         onPress={onPress}>
-        <Image style={styles.imgStyle} source={imagePath.drawerIcon} />
+        <Image
+          style={styles.imgStyle}
+          source={imagePath.drawerIcon}
+          resizeMode="contain"
+        />
       </TouchableOpacity>
 
       <TextInputCompo

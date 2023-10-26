@@ -34,6 +34,7 @@ export default {
   polygonDown: require('../assets/images/Icons/polygon-down.png'),
   unlock: require('../assets/images/Icons/unlock.png'),
   setting: require('../assets/images/Icons/setting.png'),
+  checkbox: require('../assets/images/Icons/checkbox.png'),
 
   // -----------Signals file Icons import here ---------
   frame: require('../assets/images/Signals/Frame.png'),

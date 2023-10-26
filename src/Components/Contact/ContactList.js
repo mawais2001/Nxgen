@@ -22,7 +22,7 @@ function ContactList({icon, title, desc, onPress}) {
           resizeMode={FastImage.resizeMode.cover}
         />
       </View>
-      <View style={{marginLeft: moderateScale(14), flex: 1}}>
+      <View style={{marginLeft: moderateScale(14), flex: 1.4}}>
         <Text style={styles.textStyle}>{desc}</Text>
         <Text style={[styles.textStyle, {fontSize: scale(14)}]}>{title}</Text>
       </View>
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.black,
+    backgroundColor: '#4F4F4F',
     borderRadius: moderateScale(8),
     width: '100%',
     paddingVertical: moderateVerticalScale(10),

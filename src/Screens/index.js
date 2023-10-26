@@ -14,3 +14,4 @@ export {default as PrivacyPolicy} from './other/PrivacyPolicy';
 export {default as TermsOfUse} from './other/TermsOfUse';
 export {default as EditProfile} from './Profile/EditProfile';
 export {default as HowToUseApp} from './Drawer/HowToUseApp';
+export {default as SignalResult} from './Drawer/SignalResult';

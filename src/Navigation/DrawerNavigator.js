@@ -15,11 +15,6 @@ function DrawerNavigator() {
         component={TabRoutes}
         options={{headerShown: false}}
       />
-      <Drawer.Screen name={navigationStrings.LOGIN} component={Screens.Login} />
-      <Drawer.Screen
-        name={navigationStrings.SIGNUP}
-        component={Screens.SignUp}
-      />
     </Drawer.Navigator>
   );
 }

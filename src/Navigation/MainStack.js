@@ -64,6 +64,11 @@ function MainStack(props) {
         component={Screens.HowToUseApp}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name={navigationStrings.SignalResult}
+        component={Screens.SignalResult}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }
