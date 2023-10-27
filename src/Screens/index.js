@@ -15,3 +15,4 @@ export {default as TermsOfUse} from './other/TermsOfUse';
 export {default as EditProfile} from './Profile/EditProfile';
 export {default as HowToUseApp} from './Drawer/HowToUseApp';
 export {default as SignalResult} from './Drawer/SignalResult';
+export {default as CryptoCategories} from './Drawer/CryptoCategories';

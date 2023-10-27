@@ -19,4 +19,5 @@ export default {
   EditProfile: 'EditProfile',
   HowToUseApp: 'HowToUseApp',
   SignalResult: 'SignalResult',
+  CryptoCategories: 'CryptoCategories',
 };

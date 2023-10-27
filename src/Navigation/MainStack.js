@@ -69,6 +69,11 @@ function MainStack(props) {
         component={Screens.SignalResult}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name={navigationStrings.CryptoCategories}
+        component={Screens.CryptoCategories}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }

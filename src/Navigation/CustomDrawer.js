@@ -82,7 +82,13 @@ function CustomDrawer(props) {
           onPress={() => navigation.navigate(navigationStrings.SignalResult)}
         />
         <DrawerItemsList label="Crypto News" icon={imagePath.news} />
-        <DrawerItemsList label="Crypto Categories" icon={imagePath.category} />
+        <DrawerItemsList
+          label="Crypto Categories"
+          icon={imagePath.category}
+          onPress={() =>
+            navigation.navigate(navigationStrings.CryptoCategories)
+          }
+        />
         <DrawerItemsList
           label="Compound Calculator"
           icon={imagePath.calculator}
