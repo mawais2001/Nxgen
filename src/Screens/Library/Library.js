@@ -27,22 +27,24 @@ function Library(props) {
         onPress={() => navigation.openDrawer()}
       />
       <View style={{marginVertical: moderateVerticalScale(6)}} />
-      <AllCompo.ItemListHorizontal
+      {/* <AllCompo.ItemListHorizontal
         list={['Academy', 'Videos']}
         selected={selected}
         setSelected={setSelected}
         myStyle={{
           paddingHorizontal: moderateScale(40),
-          // width: '100%',
           flex: 1,
         }}
-        style={
-          {
-            // paddingHorizontal: moderateScale(16),
-          }
-        }
-      />
-      {/* <AllCompo.Academy /> */}
+      /> */}
+
+      <View style={{paddingHorizontal: moderateScale(20)}}>
+        <AllCompo.TwoHoriItemsSelector
+          firstItem={'Academy'}
+          secondItem={'Videos'}
+          selected={selected}
+          setSelected={setSelected}
+        />
+      </View>
 
       {selected === 'Academy' ? <AllCompo.Academy {...props} /> : null}
       {selected === 'Videos' ? <AllCompo.Videos /> : null}

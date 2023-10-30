@@ -92,8 +92,15 @@ function CustomDrawer(props) {
         <DrawerItemsList
           label="Compound Calculator"
           icon={imagePath.calculator}
+          onPress={() =>
+            navigation.navigate(navigationStrings.CompoundCalculator)
+          }
         />
-        <DrawerItemsList label="IDO" icon={imagePath.shuttle} />
+        <DrawerItemsList
+          label="IDO"
+          icon={imagePath.shuttle}
+          onPress={() => navigation.navigate(navigationStrings.IdoDrawerScreen)}
+        />
         <DrawerItemsList label="Language" icon={imagePath.language} />
         <DrawerItemsList
           label="Setting"

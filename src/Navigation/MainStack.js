@@ -74,6 +74,16 @@ function MainStack(props) {
         component={Screens.CryptoCategories}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name={navigationStrings.IdoDrawerScreen}
+        component={Screens.IdoDrawerScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.CompoundCalculator}
+        component={Screens.CompoundCalculator}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }

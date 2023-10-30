@@ -91,18 +91,20 @@ function CryptoCategories(props) {
 
   return (
     <View style={styles.container}>
-      <AllCompo.HeaderWithSearch
-        searchText={searchText}
-        setSearchText={setSearchText}
-        onPress={() => navigation.goBack()}
-        placeholder="Search Here"
-        icon={imagePath.back}
-        IconContainer={{
-          width: moderateScale(30),
-          height: moderateScale(30),
-          borderRadius: moderateScale(15),
-        }}
-      />
+      <View style={{paddingHorizontal: moderateScale(10)}}>
+        <AllCompo.HeaderWithSearch
+          searchText={searchText}
+          setSearchText={setSearchText}
+          onPress={() => navigation.goBack()}
+          placeholder="Search Here"
+          icon={imagePath.back}
+          IconContainer={{
+            width: moderateScale(30),
+            height: moderateScale(30),
+            borderRadius: moderateScale(15),
+          }}
+        />
+      </View>
       <AllCompo.ItemListHorizontal
         list={Itemlist}
         selected={selected}

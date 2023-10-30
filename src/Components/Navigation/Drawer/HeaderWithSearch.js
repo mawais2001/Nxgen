@@ -37,7 +37,7 @@ const HeaderWithSearch = ({
           height: moderateScale(44),
           alignItems: 'center',
           justifyContent: 'center',
-          marginRight: moderateScale(12),
+          marginRight: moderateScale(10),
           backgroundColor: colors.theme,
         }}>
         <TouchableOpacity
@@ -86,7 +86,7 @@ const HeaderWithSearch = ({
 const styles = StyleSheet.create({
   container: {
     paddingTop: moderateVerticalScale(20),
-    paddingHorizontal: moderateScale(20),
+    // paddingHorizontal: moderateScale(8),
     backgroundColor: colors.theme,
     flexDirection: 'row',
     justifyContent: 'flex-start',

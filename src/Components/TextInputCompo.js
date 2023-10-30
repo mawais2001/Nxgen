@@ -29,12 +29,22 @@ function TextInputCompo({
   placeholderTextColor = colors.whiteColorOpacity50,
   clearIcon = '',
   onPressClear = () => {},
+  leftText = '',
+  leftTextStyle = '',
+  leftTextOnPress = () => {},
   ...props
 }) {
   return (
     <View style={{...styles.inputStyle, ...inputStyle}}>
       {leftIcon ? (
         <Image style={styles.leftIconStyle} source={leftIcon} />
+      ) : null}
+      {leftText.length > 0 ? (
+        <TouchableOpacity activeOpacity={0.6} onPress={leftTextOnPress}>
+          <Text style={{...styles.leftTextStyle, ...leftTextStyle}}>
+            {leftText}
+          </Text>
+        </TouchableOpacity>
       ) : null}
       <TextInput
         style={{...styles.textStyle, ...textStyle}}
@@ -88,6 +98,11 @@ const styles = StyleSheet.create({
     width: moderateScale(14),
     height: moderateScale(14),
     tintColor: colors.black,
+  },
+  leftTextStyle: {
+    fontSize: scale(12),
+    color: colors.black,
+    fontWeight: '400',
   },
 });
 

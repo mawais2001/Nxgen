@@ -249,6 +249,7 @@ const TrackedCoins = ({trackData, selected}) => {
                   style={{
                     width: moderateScale(40),
                     height: moderateScale(40),
+                    borderRadius: moderateScale(20),
                   }}
                 />
                 <View style={{marginLeft: moderateScale(14)}}>
@@ -323,9 +324,9 @@ const TrackedCoins = ({trackData, selected}) => {
         <View style={styles.itemDetailContainer}>
           <TouchableOpacity
             style={{
-              width: 32,
-              height: 32,
-              borderRadius: 16,
+              width: moderateScale(22),
+              height: moderateScale(22),
+              borderRadius: moderateScale(22 / 2),
               alignItems: 'center',
               justifyContent: 'center',
               backgroundColor: colors.yellow,
@@ -334,7 +335,7 @@ const TrackedCoins = ({trackData, selected}) => {
             onPress={() => setFullDetail(false)}>
             <Image
               source={imagePath.back}
-              style={{width: 16, height: 16}}
+              style={{width: moderateScale(12), height: moderateScale(12)}}
               resizeMode="contain"
             />
           </TouchableOpacity>
@@ -347,6 +348,7 @@ const TrackedCoins = ({trackData, selected}) => {
                   style={{
                     width: moderateScale(50),
                     height: moderateScale(50),
+                    borderRadius: moderateScale(25),
                   }}
                   resizeMode={FastImage.resizeMode.contain}
                 />

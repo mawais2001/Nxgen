@@ -20,4 +20,6 @@ export default {
   HowToUseApp: 'HowToUseApp',
   SignalResult: 'SignalResult',
   CryptoCategories: 'CryptoCategories',
+  IdoDrawerScreen: 'IdoDrawerScreen',
+  CompoundCalculator: 'CompoundCalculator',
 };

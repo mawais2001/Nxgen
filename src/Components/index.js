@@ -15,3 +15,4 @@ export {default as Videos} from './Library/Videos';
 export {default as HeaderWIthLabel} from './Headers/HeaderWIthLabel';
 export {default as ListHorizont} from './Setting/ListHorizont';
 export {default as HeaderWithSearch} from './Navigation/Drawer/HeaderWithSearch';
+export {default as TwoHoriItemsSelector} from './Navigation/TwoHoriItemsSelector';

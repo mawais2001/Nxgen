@@ -35,6 +35,7 @@ export default {
   unlock: require('../assets/images/Icons/unlock.png'),
   setting: require('../assets/images/Icons/setting.png'),
   checkbox: require('../assets/images/Icons/checkbox.png'),
+  dollar: require('../assets/images/Icons/dollar-currency-symbol.png'),
 
   // -----------Signals file Icons import here ---------
   frame: require('../assets/images/Signals/Frame.png'),
@@ -86,4 +87,5 @@ export default {
   info: require('../assets/images/Drawer/info.png'),
   contact: require('../assets/images/Drawer/contact-us.png'),
   drawerLogo: require('../assets/images/Drawer/drawer-logo.png'),
+  idobackground: require('../assets/images/Drawer/ido-background.png'),
 };
