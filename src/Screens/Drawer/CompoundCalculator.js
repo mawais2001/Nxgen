@@ -1,3 +1,4 @@
+import {Keyboard} from 'react-native';
 import {
   React,
   View,
@@ -19,27 +20,94 @@ import {
 } from '../../common/CommonImports';
 import * as AllCompo from '../../Components/index';
 import {useNavigation} from '@react-navigation/native';
-
 function CompoundCalculator(props) {
   const [depositValue, setDepositValue] = useState('');
   const [contributionValue, setContributionValue] = useState('');
   const [selected, setSelected] = useState('Monthly');
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [selectedMonth, setSelectedMonth] = useState(0);
+  const [selectedYear, setSelectedYear] = useState(0);
 
-  const handleMonthsModal = () => {
-    Alert.alert('Months');
+  const handleClearValues = () => {
+    setDepositValue('');
+    setContributionValue('');
+    Keyboard.dismiss();
   };
 
-  const handleYearsModal = () => {
-    Alert.alert('Years');
-  };
+  const months = [
+    '1 Month',
+    '2 Months',
+    '3 Months',
+    '4 Months',
+    '5 Months',
+    '6 Months',
+    '7 Months',
+    '8 Months',
+    '9 Months',
+    '10 Months',
+    '11 Months',
+    '12 Months',
+  ];
+  const years = [
+    '1 Year',
+    '2 Years',
+    '3 Years',
+    '4 Years',
+    '5 Years',
+    '6 Years',
+    '7 Years',
+    '8 Years',
+    '9 Years',
+    '10 Years',
+    '11 Years',
+    '12 Years',
+  ];
+
   const handleShowModal = () => {
+    setModalVisible(!isModalVisible);
+    Keyboard.dismiss();
+  };
+  const handleSetDate = (item, index) => {
     if (selected === 'Monthly') {
-      handleMonthsModal();
+      setSelectedMonth(index);
+      setSelectedYear(0);
+      setModalVisible(!isModalVisible);
     } else if (selected === 'Yearly') {
-      handleYearsModal();
+      setSelectedYear(index);
+      setSelectedMonth(0);
+      setModalVisible(!isModalVisible);
     } else {
       null;
     }
+  };
+
+  const renderItem = ({item, index}) => {
+    return (
+      <View
+        style={{
+          elevation: 10,
+        }}>
+        <TouchableOpacity
+          style={{
+            backgroundColor: colors.white,
+            paddingHorizontal: moderateScale(12),
+            paddingVertical: moderateVerticalScale(6),
+            borderBottomWidth: 2,
+            borderBottomColor: colors.borderColor,
+          }}
+          activeOpacity={0.5}
+          onPress={() => handleSetDate(item, index)}>
+          <Text
+            style={{
+              fontSize: scale(12),
+              color: colors.black,
+              fontWeight: '400',
+            }}>
+            {item}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
   };
 
   return (
@@ -73,6 +141,7 @@ function CompoundCalculator(props) {
         secondItem={'Yearly'}
         selected={selected}
         setSelected={setSelected}
+        onPress={() => Alert.alert('ha')}
       />
 
       <View
@@ -117,40 +186,64 @@ function CompoundCalculator(props) {
           {selected === 'Monthly' ? 'Months' : 'Years'}
         </Text>
       </View>
-      <AllCompo.TextInputCompo
-        placeholder=""
-        inputStyle={{
-          backgroundColor: colors.borderColor,
-          borderRadius: moderateScale(6),
-          height: moderateVerticalScale(46),
-        }}
-        leftText={selected === 'Monthly' ? '1 Month' : '1 Year'}
-        leftTextOnPress={() => handleShowModal()}
-        keyboardType="numeric"
-        textStyle={{
-          fontSize: scale(14),
-          color: colors.black,
-        }}
-        value={contributionValue}
-        onChangeText={text => setContributionValue(text)}
-      />
-      <TouchableOpacity
-        style={{alignItems: 'center', marginTop: moderateVerticalScale(16)}}
-        activeOpacity={0.8}>
-        <Text style={[styles.headingStyle, {fontWeight: '600'}]}>Clear</Text>
-      </TouchableOpacity>
-      <View
-        style={{alignItems: 'center', marginTop: moderateVerticalScale(16)}}>
-        <AllCompo.ButtonCompo
-          title="Calculate"
-          style={{width: '100%'}}
-          textStyle={{
-            fontWeight: '600',
-            fontSize: scale(14),
-            color: colors.theme,
-          }}
-        />
+
+      <View style={styles.showDateModalContainer}>
+        <TouchableOpacity
+          style={styles.showModalDateTextContainer}
+          activeOpacity={0.6}
+          onPress={() => handleShowModal()}>
+          <Text style={styles.showDateModalTextStyle}>
+            {selected === 'Monthly'
+              ? months[selectedMonth]
+              : years[selectedYear]}
+          </Text>
+          <Image
+            source={isModalVisible ? imagePath.up : imagePath.down}
+            style={styles.showDatemodalIcon}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
       </View>
+      {isModalVisible ? (
+        <View style={{flex: 1}}>
+          <FlatList
+            data={selected === 'Monthly' ? months : years}
+            renderItem={renderItem}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </View>
+      ) : (
+        <>
+          <TouchableOpacity
+            style={{alignItems: 'center', marginTop: moderateVerticalScale(16)}}
+            activeOpacity={0.7}
+            onPress={handleClearValues}>
+            <Text style={[styles.headingStyle, {fontWeight: '600'}]}>
+              Clear
+            </Text>
+          </TouchableOpacity>
+          <View
+            style={{
+              alignItems: 'center',
+              marginTop: moderateVerticalScale(16),
+            }}>
+            <AllCompo.ButtonCompo
+              title="Calculate"
+              style={{width: '100%'}}
+              textStyle={{
+                fontWeight: '600',
+                fontSize: scale(14),
+                color: colors.theme,
+              }}
+            />
+          </View>
+        </>
+      )}
+
+      {isModalVisible ? (
+        <View style={{height: moderateVerticalScale(22)}} />
+      ) : null}
     </View>
   );
 }
@@ -163,6 +256,29 @@ const styles = StyleSheet.create({
   },
   headingStyle: {
     fontSize: scale(14),
+    fontWeight: '400',
+    color: colors.black,
+  },
+  showDatemodalIcon: {
+    width: moderateScale(14),
+    height: moderateScale(14),
+    tintColor: colors.theme,
+  },
+  showDateModalContainer: {
+    backgroundColor: colors.borderColor,
+    borderRadius: moderateScale(6),
+    height: moderateVerticalScale(46),
+    marginTop: moderateVerticalScale(4),
+  },
+  showModalDateTextContainer: {
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: moderateScale(14),
+  },
+  showDateModalTextStyle: {
+    fontSize: scale(12),
     fontWeight: '400',
     color: colors.black,
   },

@@ -15,6 +15,7 @@ function TwoHoriItemsSelector({
   style,
   itemContainerStyle,
   itemTextStyle,
+  onPress = () => {},
 }) {
   return (
     <View style={{...styles.listContainer, ...style}}>
@@ -26,6 +27,7 @@ function TwoHoriItemsSelector({
             selected === firstItem ? colors.theme : colors.borderColor,
         }}
         onPress={() => setSelected(firstItem)}
+        // onPress={onPress ? onPress : () => setSelected(firstItem)}
         activeOpacity={0.5}>
         <View>
           <Text
