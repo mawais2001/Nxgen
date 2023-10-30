@@ -20,6 +20,8 @@ import {
 } from '../../common/CommonImports';
 import * as AllCompo from '../../Components/index';
 import {useNavigation} from '@react-navigation/native';
+import Slider from '@react-native-community/slider';
+
 function CompoundCalculator(props) {
   const [depositValue, setDepositValue] = useState('');
   const [contributionValue, setContributionValue] = useState('');
@@ -27,6 +29,8 @@ function CompoundCalculator(props) {
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState(0);
   const [selectedYear, setSelectedYear] = useState(0);
+  const [sliderValue, setSliderValue] = useState(0);
+  const [tooltipVisible, setTooltipVisible] = useState(false);
 
   const handleClearValues = () => {
     setDepositValue('');
@@ -110,6 +114,43 @@ function CompoundCalculator(props) {
     );
   };
 
+  const ValueLabel = ({value}) => (
+    <View
+      style={[
+        styles.labelContainer,
+        {
+          left: sliderValue * 3.5,
+        },
+      ]}>
+      <Text style={styles.labelText}>{value}</Text>
+    </View>
+  );
+
+  const onValueChange = value => {
+    setSliderValue(value);
+  };
+
+  const showTooltip = () => {
+    setTooltipVisible(true);
+    console.log('i touch slider: ', tooltipVisible);
+  };
+
+  const hideTooltip = () => {
+    setTooltipVisible(false);
+    console.log('i not touch slider: ', tooltipVisible);
+  };
+
+  const onSlidingComplete = () => {
+    setTooltipVisible(false);
+    console.log('i am call');
+  };
+
+  // const hideTooltip = () => {
+  //   if (sliderRef.current) {
+  //     sliderRef.current.setNativeProps({tooltipVisible: false});
+  //   }
+  // };
+
   return (
     <View style={styles.container}>
       <AllCompo.HeaderWIthLabel
@@ -172,11 +213,36 @@ function CompoundCalculator(props) {
           marginBottom: moderateVerticalScale(10),
           //   marginTop: moderateVerticalScale(18),
         }}>
-        <Text style={styles.headingStyle}>Rate %:</Text>
+        <Text style={styles.headingStyle}>Rate % {sliderValue} :</Text>
       </View>
-      <View>
-        <Text>Slider</Text>
+
+      <View style={{paddingVertical: moderateVerticalScale(4)}}>
+        {tooltipVisible && <ValueLabel value={sliderValue} />}
+        {/* <ValueLabel value={sliderValue} /> */}
+        <Slider
+          minimumValue={0}
+          maximumValue={100}
+          thumbTintColor={colors.yellow}
+          minimumTrackTintColor={colors.yellow}
+          maximumTrackTintColor={colors.gray}
+          step={1}
+          value={sliderValue}
+          onValueChange={onValueChange}
+          onTouchStart={showTooltip}
+          onTouchEnd={hideTooltip}
+          // onSlidingComplete={onSlidingComplete}
+        />
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingHorizontal: moderateScale(10),
+          }}>
+          <Text style={styles.headingStyle}>0</Text>
+          <Text style={styles.headingStyle}>100</Text>
+        </View>
       </View>
+
       <View
         style={{
           marginBottom: moderateVerticalScale(10),
@@ -281,6 +347,22 @@ const styles = StyleSheet.create({
     fontSize: scale(12),
     fontWeight: '400',
     color: colors.black,
+  },
+  labelContainer: {
+    position: 'absolute',
+    top: -33, // Adjust the top value to position the label above the slider
+    // alignSelf: 'center',
+    backgroundColor: colors.yellow,
+    paddingHorizontal: moderateScale(6),
+    paddingVertical: moderateVerticalScale(4),
+    borderRadius: moderateScale(8),
+    // borderWidth: 1,
+    // borderColor: colors,
+  },
+  labelText: {
+    fontSize: scale(14),
+    fontWeight: 'bold',
+    color: colors.theme,
   },
 });
 
