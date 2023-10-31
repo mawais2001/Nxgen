@@ -35,7 +35,7 @@ function Social(props) {
             <View />
             <View />
             <View />
-            <View style={{alignItems: 'center'}}>
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
               <FastImage
                 source={imagePath.illustration}
                 style={styles.ImageStyle}
