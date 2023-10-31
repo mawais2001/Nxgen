@@ -15,6 +15,7 @@ import {
   FastImage,
   Image,
   TouchableOpacity,
+  SafeAreaView,
 } from '../../common/CommonImports';
 import * as AllCompo from '../../Components/index';
 import {useNavigation} from '@react-navigation/native';
@@ -90,74 +91,76 @@ function CryptoCategories(props) {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={{paddingHorizontal: moderateScale(10)}}>
-        <AllCompo.HeaderWithSearch
-          searchText={searchText}
-          setSearchText={setSearchText}
-          onPress={() => navigation.goBack()}
-          placeholder="Search Here"
-          icon={imagePath.back}
-          IconContainer={{
-            width: moderateScale(30),
-            height: moderateScale(30),
-            borderRadius: moderateScale(15),
-          }}
-        />
-      </View>
-      <AllCompo.ItemListHorizontal
-        list={Itemlist}
-        selected={selected}
-        setSelected={setSelected}
-      />
-      <View style={{marginTop: moderateVerticalScale(18)}}>
-        <View style={styles.lineStyle} />
-        <View style={styles.headingItemContainer}>
-          <Text
-            style={[
-              styles.headingItemTextStyle,
-              {
-                textAlign: 'left',
-                flex: 1.2,
-              },
-            ]}>
-            Name
-          </Text>
-          <Text
-            style={[
-              styles.headingItemTextStyle,
-              {
-                textAlign: 'center',
-              },
-            ]}>
-            Price 24h%
-          </Text>
-          <Text
-            style={[
-              styles.headingItemTextStyle,
-              {
-                textAlign: 'right',
-              },
-            ]}>
-            Market Cap
-          </Text>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <View style={{paddingHorizontal: moderateScale(10)}}>
+          <AllCompo.HeaderWithSearch
+            searchText={searchText}
+            setSearchText={setSearchText}
+            onPress={() => navigation.goBack()}
+            placeholder="Search Here"
+            icon={imagePath.back}
+            IconContainer={{
+              width: moderateScale(30),
+              height: moderateScale(30),
+              borderRadius: moderateScale(15),
+            }}
+          />
         </View>
-        <View style={styles.lineStyle} />
-      </View>
-      <View
-        style={{
-          flex: 1,
-          paddingHorizontal: moderateScale(10),
-          marginTop: moderateVerticalScale(12),
-        }}>
-        <FlatList
-          data={sortedData}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          showsVerticalScrollIndicator={false}
+        <AllCompo.ItemListHorizontal
+          list={Itemlist}
+          selected={selected}
+          setSelected={setSelected}
         />
+        <View style={{marginTop: moderateVerticalScale(18)}}>
+          <View style={styles.lineStyle} />
+          <View style={styles.headingItemContainer}>
+            <Text
+              style={[
+                styles.headingItemTextStyle,
+                {
+                  textAlign: 'left',
+                  flex: 1.2,
+                },
+              ]}>
+              Name
+            </Text>
+            <Text
+              style={[
+                styles.headingItemTextStyle,
+                {
+                  textAlign: 'center',
+                },
+              ]}>
+              Price 24h%
+            </Text>
+            <Text
+              style={[
+                styles.headingItemTextStyle,
+                {
+                  textAlign: 'right',
+                },
+              ]}>
+              Market Cap
+            </Text>
+          </View>
+          <View style={styles.lineStyle} />
+        </View>
+        <View
+          style={{
+            flex: 1,
+            paddingHorizontal: moderateScale(10),
+            marginTop: moderateVerticalScale(12),
+          }}>
+          <FlatList
+            data={sortedData}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

@@ -11,6 +11,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  SafeAreaView,
 } from 'react-native';
 import navigationStrings from './navigationStrings';
 import colors from '../styles/colors';
@@ -29,6 +30,7 @@ function CustomDrawer(props) {
     setShowDetail(!showDetail);
   };
   return (
+    // <SafeAreaView style={{flex: 1}}>
     <DrawerContentScrollView
       {...props}
       style={{backgroundColor: colors.drawerNaviBgColor, width: '100%'}}
@@ -186,6 +188,7 @@ function CustomDrawer(props) {
         </View>
       </View>
     </DrawerContentScrollView>
+    // </SafeAreaView>
   );
 }
 
@@ -195,6 +198,7 @@ const styles = StyleSheet.create({
     paddingTop: moderateVerticalScale(22),
     flexDirection: 'row',
     alignItems: 'center',
+    // backgroundColor: 'red',
   },
   profileImageStyle: {
     width: moderateScale(40),

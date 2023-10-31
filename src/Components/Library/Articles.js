@@ -7,6 +7,7 @@ import {
   FlatList,
   TouchableOpacity,
   ImageBackground,
+  Image,
 } from 'react-native';
 import ArticlesData from '../../dummyData/ArticlesData';
 import colors from '../../styles/colors';
@@ -18,6 +19,7 @@ import {
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import navigationStrings from '../../Navigation/navigationStrings';
+import imagePath from '../../constants/imagePath';
 
 const Articles = props => {
   const myData = ArticlesData.AllArticles;
@@ -123,7 +125,16 @@ const Articles = props => {
               borderRadius: moderateScale(20 / 2),
               marginLeft: moderateScale(6),
             }}>
-            <Ionicon name="chevron-forward" size={16} color={colors.black} />
+            {/* <Ionicon name="chevron-forward" size={16} color={colors.black} /> */}
+            <Image
+              style={{
+                width: moderateScale(10),
+                height: moderateScale(10),
+                tintColor: colors.black,
+              }}
+              source={imagePath.forward}
+              resizeMode="contain"
+            />
           </View>
         </TouchableOpacity>
       </View>

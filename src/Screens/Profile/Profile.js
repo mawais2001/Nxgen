@@ -16,6 +16,7 @@ import {
   colors,
   ScrollView,
   FlatList,
+  SafeAreaView,
 } from '../../common/CommonImports';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import ProfileCardsData from '../../dummyData/ProfileCardsData';
@@ -64,66 +65,75 @@ function Profile(props) {
   };
 
   return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      <View style={styles.profileHeaderStyle}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <FastImage
-            source={imagePath.avatar}
-            style={styles.profileImageStyle}
-          />
-          <View style={{marginLeft: moderateScale(18)}}>
-            <Text style={styles.profileNameStyle}>Awais Yaseen</Text>
-            <Text style={styles.profileSubTitleStyle}>
-              Unlock all Permium Features
-            </Text>
-            <TouchableOpacity
-              style={{
-                marginTop: moderateVerticalScale(4),
-                alignItems: 'flex-start',
-              }}>
-              <Text
-                style={{
-                  backgroundColor: colors.yellow,
-                  paddingHorizontal: moderateScale(10),
-                  paddingVertical: moderateVerticalScale(2),
-                  borderRadius: moderateScale(8),
-                  color: colors.white,
-                  fontWeight: '400',
-                  fontSize: scale(10),
-                }}>
-                Try 7 Days Free
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <View style={styles.profileHeaderStyle}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <FastImage
+              source={imagePath.avatar}
+              style={styles.profileImageStyle}
+            />
+            <View style={{marginLeft: moderateScale(18)}}>
+              <Text style={styles.profileNameStyle}>Awais Yaseen</Text>
+              <Text style={styles.profileSubTitleStyle}>
+                Unlock all Permium Features
               </Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  marginTop: moderateVerticalScale(4),
+                  alignItems: 'flex-start',
+                }}>
+                <Text
+                  style={{
+                    backgroundColor: colors.yellow,
+                    paddingHorizontal: moderateScale(10),
+                    paddingVertical: moderateVerticalScale(2),
+                    borderRadius: moderateScale(8),
+                    color: colors.white,
+                    fontWeight: '400',
+                    fontSize: scale(10),
+                  }}>
+                  Try 7 Days Free
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
+          <TouchableOpacity
+            style={styles.settingIconContainer}
+            onPress={() => navigation.navigate(navigationStrings.Setting)}
+            activeOpacity={0.5}>
+            {/* <Ionicon name="settings-outline" size={26} /> */}
+            <Image
+              source={imagePath.setting}
+              style={{
+                width: moderateScale(18),
+                height: moderateScale(18),
+                tintColor: colors.gray,
+              }}
+            />
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={styles.settingIconContainer}
-          onPress={() => navigation.navigate(navigationStrings.Setting)}
-          activeOpacity={0.5}>
-          <Ionicon name="settings-outline" size={26} />
-        </TouchableOpacity>
+        <View
+          style={{
+            marginTop: moderateVerticalScale(6),
+          }}>
+          <Text style={styles.cardTitleStyle}>Info</Text>
+        </View>
+        <View
+          style={{
+            flex: 1,
+            paddingHorizontal: moderateScale(20),
+            marginVertical: moderateVerticalScale(20),
+          }}>
+          <FlatList
+            data={cardData}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
       </View>
-      <View
-        style={{
-          marginTop: moderateVerticalScale(6),
-        }}>
-        <Text style={styles.cardTitleStyle}>Info</Text>
-      </View>
-      <View
-        style={{
-          flex: 1,
-          paddingHorizontal: moderateScale(20),
-          marginVertical: moderateVerticalScale(20),
-        }}>
-        <FlatList
-          data={cardData}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          showsVerticalScrollIndicator={false}
-        />
-      </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

@@ -15,6 +15,7 @@ import TrackedData from '../../dummyData/TrackedData';
 import * as AllCompo from '../../Components/index';
 import SignalData from '../../dummyData/SignalData';
 import {useNavigation} from '@react-navigation/native';
+import {SafeAreaView} from 'react-native';
 
 function Signals(props) {
   const [selected, setSelected] = useState('Tracked');
@@ -27,37 +28,38 @@ function Signals(props) {
   const archivedData = SignalData.Archived;
 
   return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      <HeaderCompo
-        searchText={searchText}
-        setSearchText={setSearchText}
-        onPress={() => navigation.openDrawer()}
-      />
-      <AllCompo.ItemListHorizontal
-        list={['Tracked', 'Short Term', 'Long Term', 'Archived']}
-        selected={selected}
-        setSelected={setSelected}
-        myStyle={{
-          marginRight: moderateScale(2),
-          paddingHorizontal: moderateScale(10),
-        }}
-      />
-      <View style={{flex: 1, marginBottom: moderateVerticalScale(20)}}>
-        {selected === 'Tracked' ? (
-          <AllCompo.TrackedCoins trackData={trackData} selected={selected} />
-        ) : null}
-        {selected === 'Short Term' ? (
-          <AllCompo.ShortTerm shortData={shortTermData} selected={selected} />
-        ) : null}
-        {selected === 'Long Term' ? (
-          <AllCompo.LongTerm data={longTermData} selected={selected} />
-        ) : null}
-        {selected === 'Archived' ? (
-          <AllCompo.LongTerm data={archivedData} selected={selected} />
-        ) : null}
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <HeaderCompo
+          searchText={searchText}
+          setSearchText={setSearchText}
+          onPress={() => navigation.openDrawer()}
+        />
+        <AllCompo.ItemListHorizontal
+          list={['Tracked', 'Short Term', 'Long Term', 'Archived']}
+          selected={selected}
+          setSelected={setSelected}
+          myStyle={{
+            marginRight: moderateScale(2),
+            paddingHorizontal: moderateScale(10),
+          }}
+        />
+        <View style={{flex: 1, marginBottom: moderateVerticalScale(20)}}>
+          {selected === 'Tracked' ? (
+            <AllCompo.TrackedCoins trackData={trackData} selected={selected} />
+          ) : null}
+          {selected === 'Short Term' ? (
+            <AllCompo.ShortTerm shortData={shortTermData} selected={selected} />
+          ) : null}
+          {selected === 'Long Term' ? (
+            <AllCompo.LongTerm data={longTermData} selected={selected} />
+          ) : null}
+          {selected === 'Archived' ? (
+            <AllCompo.LongTerm data={archivedData} selected={selected} />
+          ) : null}
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

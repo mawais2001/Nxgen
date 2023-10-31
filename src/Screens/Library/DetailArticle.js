@@ -15,6 +15,7 @@ import {
   imagePath,
   Text,
   ScrollView,
+  SafeAreaView,
 } from '../../common/CommonImports';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
@@ -23,37 +24,45 @@ function DetailArticle(props) {
   const {data} = props.route.params;
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <HeaderWIthLabel />
-      <View style={styles.descriptionContainer}>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <Text style={styles.descriptionTextStyle}> {data.description} </Text>
-          <Text style={styles.descriptionTextStyle}> {data.description} </Text>
-        </ScrollView>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <HeaderWIthLabel />
+        <View style={styles.descriptionContainer}>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <Text style={styles.descriptionTextStyle}>
+              {' '}
+              {data.description}{' '}
+            </Text>
+            <Text style={styles.descriptionTextStyle}>
+              {' '}
+              {data.description}{' '}
+            </Text>
+          </ScrollView>
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            marginVertical: moderateVerticalScale(12),
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}>
+          <ButtonCompo
+            title="Close"
+            style={{backgroundColor: colors.gray, width: '48%'}}
+            textStyle={{textTransform: 'uppercase'}}
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
+          <View style={{marginHorizontal: moderateScale(6)}} />
+          <ButtonCompo
+            title="Share Article"
+            style={{width: '48%'}}
+            textStyle={{textTransform: 'uppercase'}}
+          />
+        </View>
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          marginVertical: moderateVerticalScale(12),
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}>
-        <ButtonCompo
-          title="Close"
-          style={{backgroundColor: colors.gray, width: '48%'}}
-          textStyle={{textTransform: 'uppercase'}}
-          onPress={() => {
-            navigation.goBack();
-          }}
-        />
-        <View style={{marginHorizontal: moderateScale(6)}} />
-        <ButtonCompo
-          title="Share Article"
-          style={{width: '48%'}}
-          textStyle={{textTransform: 'uppercase'}}
-        />
-      </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

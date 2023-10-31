@@ -18,6 +18,7 @@ import {
   FlatList,
   TextInput,
   FastImage,
+  SafeAreaView,
 } from '../../common/CommonImports';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
@@ -68,31 +69,33 @@ function AllArticles(props) {
   };
 
   return (
-    <View style={styles.container}>
-      <HeaderWIthLabel label="Articles" />
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <HeaderWIthLabel label="Articles" />
 
-      <View>
-        <TextInputCompo
-          leftIcon={imagePath.search}
-          inputStyle={{
-            backgroundColor: colors.theme,
-            borderWidth: 1,
-            borderColor: colors.gray,
-            borderRadius: moderateScale(26),
-          }}
-          placeholder="Search here"
-        />
-      </View>
+        <View>
+          <TextInputCompo
+            leftIcon={imagePath.search}
+            inputStyle={{
+              backgroundColor: colors.theme,
+              borderWidth: 1,
+              borderColor: colors.gray,
+              borderRadius: moderateScale(26),
+            }}
+            placeholder="Search here"
+          />
+        </View>
 
-      <View style={{flex: 1}}>
-        <FlatList
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          showsVerticalScrollIndicator={false}
-        />
+        <View style={{flex: 1}}>
+          <FlatList
+            data={data}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

@@ -16,6 +16,7 @@ import {
   colors,
   ScrollView,
   FlatList,
+  SafeAreaView,
 } from '../../common/CommonImports';
 import {useNavigation} from '@react-navigation/native';
 import Ionicon from 'react-native-vector-icons/Ionicons';
@@ -27,85 +28,86 @@ function Setting(props) {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      <HeaderWIthLabel label="Settings" />
-      <View style={styles.profileDetailCard}>
-        <Image source={imagePath.path1} style={styles.backgroundImage} />
-        <Image source={imagePath.path} style={styles.backgroundImage} />
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            paddingHorizontal: moderateScale(20),
-          }}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <TouchableOpacity
-              activeOpacity={0.7}
-              onPress={() =>
-                navigation.navigate(navigationStrings.EditProfile)
-              }>
-              <FastImage
-                source={imagePath.avatar}
-                style={styles.profileImageStyle}
-              />
-            </TouchableOpacity>
-            <View style={{marginLeft: moderateScale(20)}}>
-              <Text style={styles.profileTextStyle}>Awais Yaseen</Text>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <HeaderWIthLabel label="Settings" />
+        <View style={styles.profileDetailCard}>
+          <Image source={imagePath.path1} style={styles.backgroundImage} />
+          <Image source={imagePath.path} style={styles.backgroundImage} />
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              paddingHorizontal: moderateScale(20),
+            }}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <TouchableOpacity
-                style={styles.btnStyle}
-                activeOpacity={0.5}
+                activeOpacity={0.7}
                 onPress={() =>
                   navigation.navigate(navigationStrings.EditProfile)
                 }>
-                <Text style={styles.profileTextStyle}>Edit Profile</Text>
+                <FastImage
+                  source={imagePath.avatar}
+                  style={styles.profileImageStyle}
+                />
               </TouchableOpacity>
+              <View style={{marginLeft: moderateScale(20)}}>
+                <Text style={styles.profileTextStyle}>Awais Yaseen</Text>
+                <TouchableOpacity
+                  style={styles.btnStyle}
+                  activeOpacity={0.5}
+                  onPress={() =>
+                    navigation.navigate(navigationStrings.EditProfile)
+                  }>
+                  <Text style={styles.profileTextStyle}>Edit Profile</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </View>
-      </View>
 
-      <View
-        style={{
-          height: moderateVerticalScale(2),
-          backgroundColor: colors.gray,
-          marginVertical: moderateVerticalScale(30),
-        }}
-      />
-      <ListHorizont
-        title="Contact Us"
-        icon={imagePath.call}
-        iconRight={imagePath.forward}
-        onPress={() => navigation.navigate(navigationStrings.ContactUs)}
-      />
-      <ListHorizont
-        title="Change Password"
-        icon={imagePath.password}
-        iconRight={imagePath.forward}
-        onPress={() => navigation.navigate(navigationStrings.ChangePassword)}
-      />
-      <ListHorizont
-        title="Privacy Policy"
-        icon={imagePath.email2}
-        iconRight={imagePath.forward}
-        onPress={() => navigation.navigate(navigationStrings.PrivacyPolicy)}
-      />
-      <ListHorizont
-        title="Terms of Use"
-        icon={imagePath.email2}
-        iconRight={imagePath.forward}
-        onPress={() => navigation.navigate(navigationStrings.TermsOfUse)}
-      />
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'flex-end',
-          alignItems: 'center',
-          marginBottom: moderateVerticalScale(20),
-        }}>
-        <ButtonCompo title="Logout" textStyle={{fontWeight: '700'}} />
+        <View
+          style={{
+            height: moderateVerticalScale(2),
+            backgroundColor: colors.gray,
+            marginVertical: moderateVerticalScale(30),
+          }}
+        />
+        <ListHorizont
+          title="Contact Us"
+          icon={imagePath.call}
+          iconRight={imagePath.forward}
+          onPress={() => navigation.navigate(navigationStrings.ContactUs)}
+        />
+        <ListHorizont
+          title="Change Password"
+          icon={imagePath.password}
+          iconRight={imagePath.forward}
+          onPress={() => navigation.navigate(navigationStrings.ChangePassword)}
+        />
+        <ListHorizont
+          title="Privacy Policy"
+          icon={imagePath.email2}
+          iconRight={imagePath.forward}
+          onPress={() => navigation.navigate(navigationStrings.PrivacyPolicy)}
+        />
+        <ListHorizont
+          title="Terms of Use"
+          icon={imagePath.email2}
+          iconRight={imagePath.forward}
+          onPress={() => navigation.navigate(navigationStrings.TermsOfUse)}
+        />
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+            marginBottom: moderateVerticalScale(20),
+          }}>
+          <ButtonCompo title="Logout" textStyle={{fontWeight: '700'}} />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

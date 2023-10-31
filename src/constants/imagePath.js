@@ -36,6 +36,9 @@ export default {
   setting: require('../assets/images/Icons/setting.png'),
   checkbox: require('../assets/images/Icons/checkbox.png'),
   dollar: require('../assets/images/Icons/dollar-currency-symbol.png'),
+  clock: require('../assets/images/Icons/clock.png'),
+  dot: require('../assets/images/Icons/dot.png'),
+  close: require('../assets/images/Icons/close.png'),
 
   // -----------Signals file Icons import here ---------
   frame: require('../assets/images/Signals/Frame.png'),

@@ -12,6 +12,8 @@ import {
   Button,
   ScrollView,
   FlatList,
+  SafeAreaView,
+  Platform,
 } from 'react-native';
 import {
   scale,
@@ -46,4 +48,6 @@ export {
   colors,
   ScrollView,
   FlatList,
+  SafeAreaView,
+  Platform,
 };

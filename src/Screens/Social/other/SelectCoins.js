@@ -94,7 +94,10 @@ function SelectCoins({setSelected}) {
 
   const renderItem = ({item}) => {
     return (
-      <View style={styles.currencyContainerStyle}>
+      <TouchableOpacity
+        style={styles.currencyContainerStyle}
+        onPress={() => toggleSelection(item.name)}
+        activeOpacity={0.6}>
         <View style={styles.currencyIconContainerStyle}>
           <FastImage
             source={item.icon}
@@ -106,12 +109,11 @@ function SelectCoins({setSelected}) {
               styles.currencyTextStyle
             }>{`${item.name} (${item.shortName})`}</Text>
         </View>
-        <TouchableOpacity
+        <View
           style={{
             paddingHorizontal: moderateScale(8),
             paddingVertical: moderateVerticalScale(4),
-          }}
-          onPress={() => toggleSelection(item.name)}>
+          }}>
           <View
             style={[
               styles.currencySelectionContainer,
@@ -132,8 +134,8 @@ function SelectCoins({setSelected}) {
               />
             ) : null}
           </View>
-        </TouchableOpacity>
-      </View>
+        </View>
+      </TouchableOpacity>
     );
   };
 

@@ -16,6 +16,7 @@ import {
   Text,
   ScrollView,
   FastImage,
+  SafeAreaView,
 } from '../../common/CommonImports';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
@@ -25,35 +26,38 @@ function ContactUs(props) {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
-      <HeaderWIthLabel
-        style={{
-          width: moderateScale(34),
-          height: moderateScale(34),
-          borderRadius: moderateScale(34 / 2),
-        }}
-        iconSize={24}
-      />
-      <View style={{alignItems: 'center', paddingHorizontal: moderateScale(8)}}>
-        <FastImage
-          source={imagePath.contactus}
-          style={styles.imageStyle}
-          resizeMode={FastImage.resizeMode.cover}
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <HeaderWIthLabel
+          style={{
+            width: moderateScale(34),
+            height: moderateScale(34),
+            borderRadius: moderateScale(34 / 2),
+          }}
+          iconSize={24}
         />
-        <Text style={styles.headingText}>Contact Us</Text>
-        <ContactList
-          title="Twitter"
-          desc="Follow us on"
-          icon={imagePath.twitter}
-        />
-        <ContactList
-          title="Telegram"
-          desc="Chat with us on"
-          icon={imagePath.telegram}
-        />
-        <ContactList title="Gmail" desc="Email us" icon={imagePath.gmail} />
+        <View
+          style={{alignItems: 'center', paddingHorizontal: moderateScale(8)}}>
+          <FastImage
+            source={imagePath.contactus}
+            style={styles.imageStyle}
+            resizeMode={FastImage.resizeMode.cover}
+          />
+          <Text style={styles.headingText}>Contact Us</Text>
+          <ContactList
+            title="Twitter"
+            desc="Follow us on"
+            icon={imagePath.twitter}
+          />
+          <ContactList
+            title="Telegram"
+            desc="Chat with us on"
+            icon={imagePath.telegram}
+          />
+          <ContactList title="Gmail" desc="Email us" icon={imagePath.gmail} />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

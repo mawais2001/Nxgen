@@ -16,31 +16,34 @@ import {
   colors,
   ScrollView,
   FlatList,
+  SafeAreaView,
 } from '../../common/CommonImports';
 import * as AllCompo from '../../Components/index';
 import ArticlesData from '../../dummyData/ArticlesData';
 
 function PrivacyPolicy(props) {
   return (
-    <View style={styles.container}>
-      <View style={{paddingHorizontal: moderateScale(20)}}>
-        <AllCompo.HeaderWIthLabel label="Privacy Policy" />
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <View style={{paddingHorizontal: moderateScale(20)}}>
+          <AllCompo.HeaderWIthLabel label="Privacy Policy" />
+        </View>
+        <ScrollView
+          style={{flex: 1, paddingHorizontal: moderateScale(20)}}
+          showsVerticalScrollIndicator={false}>
+          <Text>{ArticlesData.oneArticle.description}</Text>
+          <Text>{ArticlesData.oneArticle.description}</Text>
+          <Text>{ArticlesData.oneArticle.description}</Text>
+        </ScrollView>
+        <View style={styles.buttonContainer}>
+          <AllCompo.ButtonCompo
+            title="Accept"
+            style={{width: '100%'}}
+            textStyle={styles.buttonTextStyle}
+          />
+        </View>
       </View>
-      <ScrollView
-        style={{flex: 1, paddingHorizontal: moderateScale(20)}}
-        showsVerticalScrollIndicator={false}>
-        <Text>{ArticlesData.oneArticle.description}</Text>
-        <Text>{ArticlesData.oneArticle.description}</Text>
-        <Text>{ArticlesData.oneArticle.description}</Text>
-      </ScrollView>
-      <View style={styles.buttonContainer}>
-        <AllCompo.ButtonCompo
-          title="Accept"
-          style={{width: '100%'}}
-          textStyle={styles.buttonTextStyle}
-        />
-      </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

@@ -15,6 +15,7 @@ import {
 } from 'react-native-size-matters';
 import fontFamily from '../styles/fontFamily';
 import CloseIcon from 'react-native-vector-icons/Ionicons';
+import imagePath from '../constants/imagePath';
 
 function TextInputCompo({
   value = '',
@@ -69,7 +70,12 @@ function TextInputCompo({
           }}
           onPress={onPressClear}
           activeOpacity={0.4}>
-          <CloseIcon name="close" size={18} color={colors.black} />
+          {/* <CloseIcon name="close" size={18} color={colors.black} /> */}
+          <Image
+            source={imagePath.close}
+            style={{width: moderateScale(10), height: moderateScale(10)}}
+            resizeMode="contain"
+          />
         </TouchableOpacity>
       ) : null}
     </View>

@@ -26,9 +26,9 @@ const TextInputLabel = ({
         {leftIcon ? (
           <TouchableOpacity
             style={{
-              width: moderateScale(32),
-              height: moderateVerticalScale(32),
-              borderRadius: moderateScale(32 / 2),
+              width: moderateScale(24),
+              height: moderateVerticalScale(24),
+              borderRadius: moderateScale(24 / 2),
               backgroundColor: colors.iconBgColor,
               alignItems: 'center',
               justifyContent: 'center',
@@ -65,8 +65,8 @@ const styles = ScaledSheet.create({
     color: colors.gray,
   },
   icon: {
-    width: moderateScale(22),
-    height: moderateVerticalScale(22),
+    width: moderateScale(16),
+    height: moderateVerticalScale(16),
     tintColor: colors.gray,
   },
   containInput: {
@@ -77,6 +77,7 @@ const styles = ScaledSheet.create({
     borderColor: '#E1E1EC',
     alignItems: 'center',
     paddingHorizontal: moderateScale(12),
+    paddingVertical: moderateVerticalScale(4),
   },
 });
 

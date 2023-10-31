@@ -1,4 +1,4 @@
-import {Keyboard} from 'react-native';
+import {Keyboard, SafeAreaView} from 'react-native';
 import {
   React,
   View,
@@ -132,17 +132,14 @@ function CompoundCalculator(props) {
 
   const showTooltip = () => {
     setTooltipVisible(true);
-    console.log('i touch slider: ', tooltipVisible);
   };
 
   const hideTooltip = () => {
     setTooltipVisible(false);
-    console.log('i not touch slider: ', tooltipVisible);
   };
 
   const onSlidingComplete = () => {
     setTooltipVisible(false);
-    console.log('i am call');
   };
 
   // const hideTooltip = () => {
@@ -152,165 +149,170 @@ function CompoundCalculator(props) {
   // };
 
   return (
-    <View style={styles.container}>
-      <AllCompo.HeaderWIthLabel
-        label="Compound Calculator"
-        labelStyle={{marginLeft: moderateScale(40)}}
-      />
-      <View style={{marginBottom: moderateVerticalScale(10)}}>
-        <Text style={styles.headingStyle}>Initial Deposit</Text>
-      </View>
-      <AllCompo.TextInputCompo
-        placeholder=""
-        inputStyle={{
-          backgroundColor: colors.borderColor,
-          borderRadius: moderateScale(6),
-          height: moderateVerticalScale(46),
-        }}
-        leftIcon={imagePath.dollar}
-        keyboardType="numeric"
-        textStyle={{
-          fontSize: scale(14),
-          color: colors.black,
-        }}
-        value={depositValue}
-        onChangeText={text => setDepositValue(text)}
-      />
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <AllCompo.HeaderWIthLabel
+          label="Compound Calculator"
+          labelStyle={{marginLeft: moderateScale(40)}}
+        />
+        <View style={{marginBottom: moderateVerticalScale(10)}}>
+          <Text style={styles.headingStyle}>Initial Deposit</Text>
+        </View>
+        <AllCompo.TextInputCompo
+          placeholder=""
+          inputStyle={{
+            backgroundColor: colors.borderColor,
+            borderRadius: moderateScale(6),
+            height: moderateVerticalScale(46),
+          }}
+          leftIcon={imagePath.dollar}
+          keyboardType="numeric"
+          textStyle={{
+            fontSize: scale(14),
+            color: colors.black,
+          }}
+          value={depositValue}
+          onChangeText={text => setDepositValue(text)}
+        />
 
-      <AllCompo.TwoHoriItemsSelector
-        firstItem={'Monthly'}
-        secondItem={'Yearly'}
-        selected={selected}
-        setSelected={setSelected}
-        onPress={() => Alert.alert('ha')}
-      />
+        <AllCompo.TwoHoriItemsSelector
+          firstItem={'Monthly'}
+          secondItem={'Yearly'}
+          selected={selected}
+          setSelected={setSelected}
+          onPress={() => Alert.alert('ha')}
+        />
 
-      <View
-        style={{
-          marginBottom: moderateVerticalScale(10),
-          marginTop: moderateVerticalScale(18),
-        }}>
-        <Text style={styles.headingStyle}>Contribution</Text>
-      </View>
-      <AllCompo.TextInputCompo
-        placeholder=""
-        inputStyle={{
-          backgroundColor: colors.borderColor,
-          borderRadius: moderateScale(6),
-          height: moderateVerticalScale(46),
-        }}
-        leftIcon={imagePath.dollar}
-        keyboardType="numeric"
-        textStyle={{
-          fontSize: scale(14),
-          color: colors.black,
-        }}
-        value={contributionValue}
-        onChangeText={text => setContributionValue(text)}
-      />
-      <View
-        style={{
-          marginBottom: moderateVerticalScale(10),
-          //   marginTop: moderateVerticalScale(18),
-        }}>
-        <Text style={styles.headingStyle}>Rate % {sliderValue} :</Text>
-      </View>
-
-      <View style={{paddingVertical: moderateVerticalScale(4)}}>
-        {tooltipVisible && <ValueLabel value={sliderValue} />}
-        {/* <ValueLabel value={sliderValue} /> */}
-        <Slider
-          minimumValue={0}
-          maximumValue={100}
-          thumbTintColor={colors.yellow}
-          minimumTrackTintColor={colors.yellow}
-          maximumTrackTintColor={colors.gray}
-          step={1}
-          value={sliderValue}
-          onValueChange={onValueChange}
-          onTouchStart={showTooltip}
-          onTouchEnd={hideTooltip}
-          // onSlidingComplete={onSlidingComplete}
+        <View
+          style={{
+            marginBottom: moderateVerticalScale(10),
+            marginTop: moderateVerticalScale(18),
+          }}>
+          <Text style={styles.headingStyle}>Contribution</Text>
+        </View>
+        <AllCompo.TextInputCompo
+          placeholder=""
+          inputStyle={{
+            backgroundColor: colors.borderColor,
+            borderRadius: moderateScale(6),
+            height: moderateVerticalScale(46),
+          }}
+          leftIcon={imagePath.dollar}
+          keyboardType="numeric"
+          textStyle={{
+            fontSize: scale(14),
+            color: colors.black,
+          }}
+          value={contributionValue}
+          onChangeText={text => setContributionValue(text)}
         />
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            paddingHorizontal: moderateScale(10),
+            marginBottom: moderateVerticalScale(10),
+            //   marginTop: moderateVerticalScale(18),
           }}>
-          <Text style={styles.headingStyle}>0</Text>
-          <Text style={styles.headingStyle}>100</Text>
+          <Text style={styles.headingStyle}>Rate % {sliderValue} :</Text>
         </View>
-      </View>
 
-      <View
-        style={{
-          marginBottom: moderateVerticalScale(10),
-          marginTop: moderateVerticalScale(18),
-        }}>
-        <Text style={styles.headingStyle}>
-          {selected === 'Monthly' ? 'Months' : 'Years'}
-        </Text>
-      </View>
-
-      <View style={styles.showDateModalContainer}>
-        <TouchableOpacity
-          style={styles.showModalDateTextContainer}
-          activeOpacity={0.6}
-          onPress={() => handleShowModal()}>
-          <Text style={styles.showDateModalTextStyle}>
-            {selected === 'Monthly'
-              ? months[selectedMonth]
-              : years[selectedYear]}
-          </Text>
-          <Image
-            source={isModalVisible ? imagePath.up : imagePath.down}
-            style={styles.showDatemodalIcon}
-            resizeMode="contain"
+        <View style={{paddingVertical: moderateVerticalScale(4)}}>
+          {tooltipVisible && <ValueLabel value={sliderValue} />}
+          {/* <ValueLabel value={sliderValue} /> */}
+          <Slider
+            minimumValue={0}
+            maximumValue={100}
+            thumbTintColor={colors.yellow}
+            minimumTrackTintColor={colors.yellow}
+            maximumTrackTintColor={colors.gray}
+            step={1}
+            value={sliderValue}
+            onValueChange={onValueChange}
+            onTouchStart={showTooltip}
+            onTouchEnd={hideTooltip}
+            // onSlidingComplete={onSlidingComplete}
           />
-        </TouchableOpacity>
-      </View>
-      {isModalVisible ? (
-        <View style={{flex: 1}}>
-          <FlatList
-            data={selected === 'Monthly' ? months : years}
-            renderItem={renderItem}
-            showsVerticalScrollIndicator={false}
-            keyExtractor={(item, index) => index.toString()}
-          />
-        </View>
-      ) : (
-        <>
-          <TouchableOpacity
-            style={{alignItems: 'center', marginTop: moderateVerticalScale(16)}}
-            activeOpacity={0.7}
-            onPress={handleClearValues}>
-            <Text style={[styles.headingStyle, {fontWeight: '600'}]}>
-              Clear
-            </Text>
-          </TouchableOpacity>
           <View
             style={{
-              alignItems: 'center',
-              marginTop: moderateVerticalScale(16),
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              paddingHorizontal: moderateScale(10),
             }}>
-            <AllCompo.ButtonCompo
-              title="Calculate"
-              style={{width: '100%'}}
-              textStyle={{
-                fontWeight: '600',
-                fontSize: scale(14),
-                color: colors.theme,
-              }}
+            <Text style={styles.headingStyle}>0</Text>
+            <Text style={styles.headingStyle}>100</Text>
+          </View>
+        </View>
+
+        <View
+          style={{
+            marginBottom: moderateVerticalScale(10),
+            marginTop: moderateVerticalScale(18),
+          }}>
+          <Text style={styles.headingStyle}>
+            {selected === 'Monthly' ? 'Months' : 'Years'}
+          </Text>
+        </View>
+
+        <View style={styles.showDateModalContainer}>
+          <TouchableOpacity
+            style={styles.showModalDateTextContainer}
+            activeOpacity={0.6}
+            onPress={() => handleShowModal()}>
+            <Text style={styles.showDateModalTextStyle}>
+              {selected === 'Monthly'
+                ? months[selectedMonth]
+                : years[selectedYear]}
+            </Text>
+            <Image
+              source={isModalVisible ? imagePath.up : imagePath.down}
+              style={styles.showDatemodalIcon}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+        </View>
+        {isModalVisible ? (
+          <View style={{flex: 1}}>
+            <FlatList
+              data={selected === 'Monthly' ? months : years}
+              renderItem={renderItem}
+              showsVerticalScrollIndicator={false}
+              keyExtractor={(item, index) => index.toString()}
             />
           </View>
-        </>
-      )}
+        ) : (
+          <>
+            <TouchableOpacity
+              style={{
+                alignItems: 'center',
+                marginTop: moderateVerticalScale(16),
+              }}
+              activeOpacity={0.7}
+              onPress={handleClearValues}>
+              <Text style={[styles.headingStyle, {fontWeight: '600'}]}>
+                Clear
+              </Text>
+            </TouchableOpacity>
+            <View
+              style={{
+                alignItems: 'center',
+                marginTop: moderateVerticalScale(16),
+              }}>
+              <AllCompo.ButtonCompo
+                title="Calculate"
+                style={{width: '100%'}}
+                textStyle={{
+                  fontWeight: '600',
+                  fontSize: scale(14),
+                  color: colors.theme,
+                }}
+              />
+            </View>
+          </>
+        )}
 
-      {isModalVisible ? (
-        <View style={{height: moderateVerticalScale(22)}} />
-      ) : null}
-    </View>
+        {isModalVisible ? (
+          <View style={{height: moderateVerticalScale(22)}} />
+        ) : null}
+      </View>
+    </SafeAreaView>
   );
 }
 

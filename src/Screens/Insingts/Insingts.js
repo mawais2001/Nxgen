@@ -17,6 +17,8 @@ import {
   colors,
   ScrollView,
   FlatList,
+  SafeAreaView,
+  Platform,
 } from '../../common/CommonImports';
 import HeaderCompo from '../../Components/HeaderCompo';
 import ItemListHorizontal from '../../Components/ItemListHorizontal';
@@ -60,42 +62,49 @@ function Insingts(props) {
   };
 
   return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      <HeaderCompo
-        searchText={searchText}
-        setSearchText={setSearchText}
-        onPress={() => navigation.openDrawer()}
-      />
-
-      <ItemListHorizontal
-        list={[
-          'All',
-          'Ethereum',
-          'Ripple',
-          'Dogecoin',
-          'Binance',
-          'Cardano',
-          'Polkadot',
-          'Solana',
-        ]}
-        selected={selected}
-        setSelected={setSelected}
-      />
-      <View
-        style={{
-          flex: 1,
-          marginTop: moderateVerticalScale(24),
-          marginBottom: moderateVerticalScale(30),
-        }}>
-        <FlatList
-          data={CryptoData[selected]}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          showsVerticalScrollIndicator={false}
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <StatusBar
+          backgroundColor={colors.black}
+          barStyle={
+            Platform.OS === 'android' ? 'light-content' : 'dark-content'
+          }
         />
+        <HeaderCompo
+          searchText={searchText}
+          setSearchText={setSearchText}
+          onPress={() => navigation.openDrawer()}
+        />
+
+        <ItemListHorizontal
+          list={[
+            'All',
+            'Ethereum',
+            'Ripple',
+            'Dogecoin',
+            'Binance',
+            'Cardano',
+            'Polkadot',
+            'Solana',
+          ]}
+          selected={selected}
+          setSelected={setSelected}
+        />
+        <View
+          style={{
+            flex: 1,
+            marginTop: moderateVerticalScale(24),
+            marginBottom: moderateVerticalScale(30),
+          }}>
+          <FlatList
+            data={CryptoData[selected]}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -134,7 +143,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   cardContainer: {
-    backgroundColor: colors.theme,
+    backgroundColor: colors.drawerNaviBgColor,
     paddingHorizontal: moderateScale(12),
     marginHorizontal: moderateScale(20),
     shadowColor: colors.black,

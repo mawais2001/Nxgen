@@ -14,6 +14,7 @@ import {
   ImageBackground,
   FlatList,
   imagePath,
+  Image,
 } from '../../common/CommonImports';
 import Octicon from 'react-native-vector-icons/Octicons';
 
@@ -63,7 +64,15 @@ const FeaturedCourses = props => {
             marginTop: moderateVerticalScale(8),
           }}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Octicon name="dot-fill" size={18} color={colors.lightGreen} />
+            {/* <Octicon name="dot-fill" size={18} color={colors.lightGreen} /> */}
+            <Image
+              source={imagePath.dot}
+              style={{
+                width: moderateScale(12),
+                height: moderateScale(12),
+                tintColor: colors.lightGreen,
+              }}
+            />
             <Text style={styles.courseImageTextStyle}>Beginner</Text>
           </View>
           <Text
@@ -74,7 +83,15 @@ const FeaturedCourses = props => {
             Sep 21, 2023
           </Text>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Octicon name="clock" size={18} color={colors.lightGreen} />
+            {/* <Octicon name="clock" size={18} color={colors.lightGreen} /> */}
+            <Image
+              source={imagePath.clock}
+              style={{
+                width: moderateScale(12),
+                height: moderateScale(12),
+                tintColor: colors.gray,
+              }}
+            />
             <Text
               style={[
                 styles.courseDetailTextStyle,

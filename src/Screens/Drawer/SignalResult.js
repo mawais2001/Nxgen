@@ -18,6 +18,7 @@ import {
   FlatList,
   useState,
   TextInput,
+  SafeAreaView,
 } from '../../common/CommonImports';
 import {useNavigation} from '@react-navigation/native';
 import * as AllCompo from '../../Components/index';
@@ -28,33 +29,38 @@ function SignalResult(props) {
   const [selected, setSelected] = useState('Weekly');
   const trackData = TrackedData.Tracked;
   return (
-    <View style={styles.container}>
-      <AllCompo.HeaderWIthLabel
-        label="Results"
-        labelStyle={{fontSize: scale(13)}}
-        style={{
-          width: moderateScale(20),
-          height: moderateScale(20),
-          borderRadius: moderateScale(10),
-        }}
-        iconSize={12}
-      />
-      <View
-        style={{alignItems: 'center', marginBottom: moderateVerticalScale(10)}}>
-        <AllCompo.ItemListHorizontal
-          list={['Weekly', 'Monthly', 'Yearly']}
-          selected={selected}
-          setSelected={setSelected}
-          myStyle={{
-            paddingHorizontal: moderateScale(24),
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <AllCompo.HeaderWIthLabel
+          label="Results"
+          labelStyle={{fontSize: scale(13)}}
+          style={{
+            width: moderateScale(20),
+            height: moderateScale(20),
+            borderRadius: moderateScale(10),
           }}
-          style={{width: '100%'}}
+          iconSize={12}
         />
+        <View
+          style={{
+            alignItems: 'center',
+            marginBottom: moderateVerticalScale(10),
+          }}>
+          <AllCompo.ItemListHorizontal
+            list={['Weekly', 'Monthly', 'Yearly']}
+            selected={selected}
+            setSelected={setSelected}
+            myStyle={{
+              paddingHorizontal: moderateScale(24),
+            }}
+            style={{width: '100%'}}
+          />
+        </View>
+        <SignalResultCard />
+        <View style={{marginVertical: moderateVerticalScale(6)}} />
+        <ResultPerformance selected={selected} trackData={trackData} />
       </View>
-      <SignalResultCard />
-      <View style={{marginVertical: moderateVerticalScale(6)}} />
-      <ResultPerformance selected={selected} trackData={trackData} />
-    </View>
+    </SafeAreaView>
   );
 }
 

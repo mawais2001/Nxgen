@@ -1,3 +1,4 @@
+import {SafeAreaView} from 'react-native';
 import {ButtonCompo} from '../../Components';
 import {
   React,
@@ -27,45 +28,46 @@ function Social(props) {
     setSelected(true);
   };
   return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      {!selected ? (
-        <View style={{flex: 1, justifyContent: 'space-between'}}>
-          <View />
-          <View />
-          <View />
-          <View style={{alignItems: 'center'}}>
-            <FastImage
-              source={imagePath.illustration}
-              style={styles.ImageStyle}
-              resizeMode={FastImage.resizeMode.contain}
-            />
-            <Text style={styles.textStyle}>
-              {`Connect with Global
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        {!selected ? (
+          <View style={{flex: 1, justifyContent: 'space-between'}}>
+            <View />
+            <View />
+            <View />
+            <View style={{alignItems: 'center'}}>
+              <FastImage
+                source={imagePath.illustration}
+                style={styles.ImageStyle}
+                resizeMode={FastImage.resizeMode.contain}
+              />
+              <Text style={styles.textStyle}>
+                {`Connect with Global
           Cyrpto User`}
-            </Text>
+              </Text>
+            </View>
+            <View />
+            <View
+              style={{
+                alignItems: 'center',
+                marginBottom: moderateVerticalScale(20),
+              }}>
+              <ButtonCompo
+                title="Connect Now"
+                textStyle={{
+                  color: colors.black,
+                  fontWeight: '600',
+                  fontSize: scale(13),
+                }}
+                onPress={handleSelectCoins}
+              />
+            </View>
           </View>
-          <View />
-          <View
-            style={{
-              alignItems: 'center',
-              marginBottom: moderateVerticalScale(20),
-            }}>
-            <ButtonCompo
-              title="Connect Now"
-              textStyle={{
-                color: colors.black,
-                fontWeight: '600',
-                fontSize: scale(13),
-              }}
-              onPress={handleSelectCoins}
-            />
-          </View>
-        </View>
-      ) : (
-        <SelectCoins setSelected={setSelected} />
-      )}
-    </View>
+        ) : (
+          <SelectCoins setSelected={setSelected} />
+        )}
+      </View>
+    </SafeAreaView>
   );
 }
 

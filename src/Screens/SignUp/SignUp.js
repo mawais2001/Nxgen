@@ -28,7 +28,8 @@ import navigationStrings from '../../Navigation/navigationStrings';
 import {useNavigation} from '@react-navigation/native';
 
 function SignUp(props) {
-  const [isShow, setIsShow] = useState(true);
+  const [passShow, setPassShow] = useState(true);
+  const [confirmPassShow, setConfirmPass] = useState(true);
   const navigation = useNavigation();
 
   return (
@@ -67,17 +68,17 @@ function SignUp(props) {
           placeholder={'Password'}
           label="Password"
           leftIcon={imagePath.lock}
-          rightIcon={isShow ? imagePath.showEye : imagePath.hideEye}
-          onPressRight={() => setIsShow(!isShow)}
-          secureTextEntry={isShow ? true : false}
+          rightIcon={passShow ? imagePath.showEye : imagePath.hideEye}
+          onPressRight={() => setPassShow(!passShow)}
+          secureTextEntry={passShow ? true : false}
         />
         <TextInputLabel
           placeholder={'Confirm Password'}
           label="Confirm Password"
           leftIcon={imagePath.lock}
-          rightIcon={isShow ? imagePath.showEye : imagePath.hideEye}
-          onPressRight={() => setIsShow(!isShow)}
-          secureTextEntry={isShow ? true : false}
+          rightIcon={confirmPassShow ? imagePath.showEye : imagePath.hideEye}
+          onPressRight={() => setConfirmPass(!confirmPassShow)}
+          secureTextEntry={confirmPassShow ? true : false}
         />
         <View
           style={{

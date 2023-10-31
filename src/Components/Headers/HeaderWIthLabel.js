@@ -8,6 +8,7 @@ import {
 } from 'react-native-size-matters';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import colors from '../../styles/colors';
+import imagePath from '../../constants/imagePath';
 
 const HeaderWIthLabel = ({
   label,
@@ -34,7 +35,12 @@ const HeaderWIthLabel = ({
             resizeMode={resizeMode}
           />
         ) : (
-          <Ionicon name="chevron-back" size={iconSize} color={colors.black} />
+          // <Ionicon name="chevron-back" size={iconSize} color={colors.black} />
+          <Image
+            source={imagePath.back}
+            style={{width: moderateScale(12), height: moderateScale(12)}}
+            resizeMode="contain"
+          />
         )}
       </TouchableOpacity>
       <Text style={{...styles.headerTextStyle, ...labelStyle}}>{label}</Text>

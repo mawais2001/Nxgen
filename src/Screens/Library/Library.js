@@ -1,3 +1,4 @@
+import {SafeAreaView} from 'react-native';
 import {
   React,
   View,
@@ -14,20 +15,19 @@ import {
 } from '../../common/CommonImports';
 import * as AllCompo from '../../Components/index';
 import {useNavigation} from '@react-navigation/native';
-
 function Library(props) {
   const [selected, setSelected] = useState('Academy');
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor={colors.black} barStyle={'light-content'} />
-      <AllCompo.LibraryHeader
-        title="Your Crypto Library"
-        onPress={() => navigation.openDrawer()}
-      />
-      <View style={{marginVertical: moderateVerticalScale(6)}} />
-      {/* <AllCompo.ItemListHorizontal
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <AllCompo.LibraryHeader
+          title="Your Crypto Library"
+          onPress={() => navigation.openDrawer()}
+        />
+        <View style={{marginVertical: moderateVerticalScale(6)}} />
+        {/* <AllCompo.ItemListHorizontal
         list={['Academy', 'Videos']}
         selected={selected}
         setSelected={setSelected}
@@ -37,18 +37,19 @@ function Library(props) {
         }}
       /> */}
 
-      <View style={{paddingHorizontal: moderateScale(20)}}>
-        <AllCompo.TwoHoriItemsSelector
-          firstItem={'Academy'}
-          secondItem={'Videos'}
-          selected={selected}
-          setSelected={setSelected}
-        />
-      </View>
+        <View style={{paddingHorizontal: moderateScale(20)}}>
+          <AllCompo.TwoHoriItemsSelector
+            firstItem={'Academy'}
+            secondItem={'Videos'}
+            selected={selected}
+            setSelected={setSelected}
+          />
+        </View>
 
-      {selected === 'Academy' ? <AllCompo.Academy {...props} /> : null}
-      {selected === 'Videos' ? <AllCompo.Videos /> : null}
-    </View>
+        {selected === 'Academy' ? <AllCompo.Academy {...props} /> : null}
+        {selected === 'Videos' ? <AllCompo.Videos /> : null}
+      </View>
+    </SafeAreaView>
   );
 }
 

@@ -31,7 +31,11 @@ const LibraryHeader = ({title, onPress}) => {
         <Text style={styles.titleStyle}> {title} </Text>
       </View>
       <TouchableOpacity>
-        <Image source={imagePath.language} style={styles.languageIconStyle} />
+        <Image
+          source={imagePath.language}
+          style={styles.languageIconStyle}
+          resizeMode="contain"
+        />
       </TouchableOpacity>
     </View>
   );
