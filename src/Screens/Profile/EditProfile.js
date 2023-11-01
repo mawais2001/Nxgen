@@ -30,7 +30,9 @@ function EditProfile(props) {
       <View style={styles.container}>
         <AllCompo.HeaderWIthLabel label="Change Profile" />
         <ScrollView
-          style={{paddingVertical: moderateVerticalScale(30)}}
+          style={{
+            paddingVertical: moderateVerticalScale(0),
+          }}
           showsVerticalScrollIndicator={false}>
           <View style={styles.profileMainContainer}>
             <FastImage
@@ -111,8 +113,8 @@ const styles = StyleSheet.create({
   profileMainContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    // backgroundColor: 'red',
-    paddingVertical: moderateVerticalScale(32),
+    paddingVertical: moderateVerticalScale(24),
+
     borderBottomWidth: 2,
     borderBottomColor: colors.borderColor,
     paddingHorizontal: moderateScale(10),
