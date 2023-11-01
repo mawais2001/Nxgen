@@ -20,8 +20,9 @@ import {
   FlatList,
 } from '../../../common/CommonImports';
 import * as AllCompo from '../../../Components/index';
+import SocialMain from './SocialMain';
 
-function SelectCoins({setSelected}) {
+function SelectCoins({setSelected, setIsHome}) {
   const [selectedCurrencies, setSelectedCurrencies] = useState([]);
   const cryptoData = [
     {
@@ -81,6 +82,10 @@ function SelectCoins({setSelected}) {
       selected: false,
     },
   ];
+
+  const handleSocailScreens = () => {
+    setIsHome(true);
+  };
 
   const toggleSelection = name => {
     setSelectedCurrencies(prevSelected => {
@@ -176,6 +181,7 @@ function SelectCoins({setSelected}) {
           title="Next"
           style={{width: '100%'}}
           textStyle={{color: colors.black, fontSize: scale(14)}}
+          onPress={handleSocailScreens}
         />
       </View>
     </View>

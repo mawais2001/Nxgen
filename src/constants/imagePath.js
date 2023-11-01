@@ -39,6 +39,16 @@ export default {
   clock: require('../assets/images/Icons/clock.png'),
   dot: require('../assets/images/Icons/dot.png'),
   close: require('../assets/images/Icons/close.png'),
+  comment: require('../assets/images/Icons/comment.png'),
+  notification: require('../assets/images/Icons/notification.png'),
+  heart: require('../assets/images/Icons/heart.png'),
+  home: require('../assets/images/Icons/home.png'),
+  post: require('../assets/images/Icons/post.png'),
+  share: require('../assets/images/Icons/share.png'),
+  friends: require('../assets/images/Icons/friends.png'),
+  direction: require('../assets/images/Icons/direction.png'),
+  plus: require('../assets/images/Icons/plus.png'),
+  edit: require('../assets/images/Icons/edit.png'),
 
   // -----------Signals file Icons import here ---------
   frame: require('../assets/images/Signals/Frame.png'),

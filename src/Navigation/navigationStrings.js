@@ -22,4 +22,7 @@ export default {
   CryptoCategories: 'CryptoCategories',
   IdoDrawerScreen: 'IdoDrawerScreen',
   CompoundCalculator: 'CompoundCalculator',
+  Notification: 'Notification',
+  Message: 'Message',
+  SocialProfile: 'SocialProfile',
 };

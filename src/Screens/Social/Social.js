@@ -21,16 +21,19 @@ import {
   useState,
 } from '../../common/CommonImports';
 import SelectCoins from './other/SelectCoins';
-
+import SocialMain from './other/SocialMain';
+import DrawerForMainSocial from './other/DrawerForMainSocial';
+import SocialNavigator from './other/SocialNavigator';
 function Social(props) {
   const [selected, setSelected] = useState(false);
+  const [isHome, setIsHome] = useState(false);
   const handleSelectCoins = () => {
     setSelected(true);
   };
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
-        {!selected ? (
+        {/* {!selected ? (
           <View style={{flex: 1, justifyContent: 'space-between'}}>
             <View />
             <View />
@@ -64,7 +67,48 @@ function Social(props) {
             </View>
           </View>
         ) : (
-          <SelectCoins setSelected={setSelected} />
+          <SelectCoins setSelected={setSelected} setIsHome={setIsHome} />
+        )} */}
+
+        {isHome ? (
+          // <SocialMain />
+          // <DrawerForMainSocial />
+          <SocialNavigator />
+        ) : !selected ? (
+          <View style={{flex: 1, justifyContent: 'space-between'}}>
+            <View />
+            <View />
+            <View />
+            <View style={{alignItems: 'center'}}>
+              <FastImage
+                source={imagePath.illustration}
+                style={styles.ImageStyle}
+                resizeMode={FastImage.resizeMode.contain}
+              />
+              <Text style={styles.textStyle}>
+                {`Connect with Global
+            Cyrpto User`}
+              </Text>
+            </View>
+            <View />
+            <View
+              style={{
+                alignItems: 'center',
+                marginBottom: moderateVerticalScale(20),
+              }}>
+              <ButtonCompo
+                title="Connect Now"
+                textStyle={{
+                  color: colors.black,
+                  fontWeight: '600',
+                  fontSize: scale(13),
+                }}
+                onPress={handleSelectCoins}
+              />
+            </View>
+          </View>
+        ) : (
+          <SelectCoins setSelected={setSelected} setIsHome={setIsHome} />
         )}
       </View>
     </SafeAreaView>
