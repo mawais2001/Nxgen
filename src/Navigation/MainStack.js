@@ -4,6 +4,7 @@ import navigationStrings from './navigationStrings';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import TabRoutes from './TabRoutes';
 import DrawerNavigator from './DrawerNavigator';
+import StoryScreen from '../Screens/Story/StoryScreen';
 const Stack = createNativeStackNavigator();
 
 function MainStack(props) {
@@ -82,6 +83,11 @@ function MainStack(props) {
       <Stack.Screen
         name={navigationStrings.CompoundCalculator}
         component={Screens.CompoundCalculator}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={'StoryScreen'}
+        component={StoryScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -22,13 +22,19 @@ import {
   scale,
 } from 'react-native-size-matters';
 import DrawerItemsList from '../Components/Navigation/DrawerItemsList';
-
+import ThemeContext from '../themes/ThemeContext';
 function CustomDrawer(props) {
   const {navigation} = props;
   const [showDetail, setShowDetail] = useState(false);
+  const {theme, toggleTheme} = useContext(ThemeContext);
   const handleShowContactDetail = () => {
     setShowDetail(!showDetail);
   };
+  const handleToggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    toggleTheme(newTheme);
+  };
+
   return (
     // <SafeAreaView style={{flex: 1}}>
     <DrawerContentScrollView
@@ -83,7 +89,11 @@ function CustomDrawer(props) {
           icon={imagePath.antenna}
           onPress={() => navigation.navigate(navigationStrings.SignalResult)}
         />
-        <DrawerItemsList label="Crypto News" icon={imagePath.news} />
+        <DrawerItemsList
+          label="Story"
+          icon={imagePath.news}
+          onPress={() => navigation.navigate(navigationStrings.StoryScreen)}
+        />
         <DrawerItemsList
           label="Crypto Categories"
           icon={imagePath.category}
@@ -108,6 +118,11 @@ function CustomDrawer(props) {
           label="Setting"
           icon={imagePath.setting}
           onPress={() => navigation.navigate(navigationStrings.Setting)}
+        />
+        <DrawerItemsList
+          label="Toggle Theme"
+          icon={imagePath.clock}
+          onPress={handleToggleTheme}
         />
         <View
           style={{

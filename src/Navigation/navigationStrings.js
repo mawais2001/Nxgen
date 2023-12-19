@@ -25,4 +25,6 @@ export default {
   Notification: 'Notification',
   Message: 'Message',
   SocialProfile: 'SocialProfile',
+  DetailPost: 'DetailPost',
+  StoryScreen: 'StoryScreen',
 };

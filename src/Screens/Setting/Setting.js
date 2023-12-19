@@ -23,13 +23,15 @@ import Ionicon from 'react-native-vector-icons/Ionicons';
 import ListHorizont from '../../Components/Setting/ListHorizont';
 import {ButtonCompo, HeaderWIthLabel} from '../../Components';
 import navigationStrings from '../../Navigation/navigationStrings';
+import {useTheme} from '../../themes/ThemeContext';
 
 function Setting(props) {
   const navigation = useNavigation();
+  const {theme} = useTheme();
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <View style={styles.container}>
+      <View style={[styles.container, {backgroundColor: theme.background}]}>
         <HeaderWIthLabel label="Settings" />
         <View style={styles.profileDetailCard}>
           <Image source={imagePath.path1} style={styles.backgroundImage} />

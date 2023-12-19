@@ -12,16 +12,21 @@ import Routes from './src/Navigation/Routes';
 import TabRoutes from './src/Navigation/TabRoutes';
 import * as Screens from './src/Screens/index';
 import colors from './src/styles/colors';
+import {ThemeProvider} from './src/themes/ThemeContext';
 
 function App(props) {
   return (
-    <View style={styles.container}>
-      <StatusBar
-        backgroundColor={colors.black}
-        barStyle={Platform.OS === 'android' ? 'light-content' : 'dark-content'}
-      />
-      <Routes />
-    </View>
+    <ThemeProvider>
+      <View style={styles.container}>
+        <StatusBar
+          backgroundColor={colors.black}
+          barStyle={
+            Platform.OS === 'android' ? 'light-content' : 'dark-content'
+          }
+        />
+        <Routes />
+      </View>
+    </ThemeProvider>
   );
 }
 

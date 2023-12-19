@@ -1,3 +1,4 @@
+import {Modal} from 'react-native';
 import navigationStrings from '../../../Navigation/navigationStrings.js';
 import {
   React,
@@ -20,9 +21,19 @@ import {
   SafeAreaView,
 } from '../../../common/CommonImports.js';
 import SocialPostData from '../../../dummyData/SocialPostData.js';
+import ButtonCompo from '../../../Components/ButtonCompo.js';
 
 const SocialMain = props => {
   const navigation = props.navigation;
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
 
   const renderItem = ({item}) => {
     return (
@@ -165,6 +176,56 @@ const SocialMain = props => {
   };
   return (
     <View style={styles.container}>
+      <Modal
+        visible={modalVisible}
+        animationType="slide" // You can change the animation type as needed
+        transparent={true}
+        onRequestClose={closeModal}
+        op>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            paddingHorizontal: moderateScale(22),
+          }}>
+          <View
+            style={{
+              backgroundColor: colors.theme,
+              padding: 20,
+              borderRadius: moderateScale(8),
+            }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}>
+              <Text style={styles.modalHeadingText}>Social Media</Text>
+              <TouchableOpacity
+                style={styles.modalIconCloseContainer}
+                onPress={closeModal}>
+                <Image
+                  source={imagePath.close}
+                  style={styles.closeModalIconStyle}
+                />
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.modalDescText}>
+              We are sorry to inform you that Social Feature is a Premium
+              Feature, and you can only access this Feature, If you buy Premium.
+            </Text>
+            <View
+              style={{
+                alignItems: 'center',
+                marginTop: moderateVerticalScale(6),
+              }}>
+              <ButtonCompo title="Join Premium" style={{width: '80%'}} />
+            </View>
+          </View>
+        </View>
+      </Modal>
       <ImageBackground
         source={imagePath.loginBackground}
         style={{
@@ -241,7 +302,7 @@ const SocialMain = props => {
           <TouchableOpacity
             style={styles.addPostBtnContainer2}
             activeOpacity={0.5}
-            onPress={() => Alert.alert('Add Post')}>
+            onPress={openModal}>
             <Image source={imagePath.plus} style={styles.addPostIconStyle} />
           </TouchableOpacity>
         </View>
@@ -366,5 +427,30 @@ const styles = StyleSheet.create({
   addPostIconStyle: {
     width: moderateScale(14),
     height: moderateScale(14),
+  },
+  modalHeadingText: {
+    fontSize: scale(16),
+    fontWeight: '700',
+    color: colors.black,
+  },
+  modalDescText: {
+    fontSize: scale(12),
+    fontWeight: '500',
+    color: colors.gray,
+    textAlign: 'justify',
+    marginVertical: moderateVerticalScale(6),
+  },
+  modalIconCloseContainer: {
+    width: moderateScale(24),
+    height: moderateScale(24),
+    borderRadius: moderateScale(24 / 2),
+    backgroundColor: colors.yellow,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  closeModalIconStyle: {
+    width: moderateScale(8),
+    height: moderateScale(8),
+    tintColor: colors.theme,
   },
 });

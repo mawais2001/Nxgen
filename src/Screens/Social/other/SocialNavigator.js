@@ -6,6 +6,7 @@ import Notification from '../Notification/Notification';
 import navigationStrings from '../../../Navigation/navigationStrings';
 import Message from '../Chat/Message';
 import SocialProfile from '../SocialProfile/SocialProfile';
+import DetailPost from '../Post/DetailPost';
 const Stack = createNativeStackNavigator();
 
 export default function SocialNavigator() {
@@ -29,6 +30,11 @@ export default function SocialNavigator() {
       <Stack.Screen
         name={navigationStrings.SocialProfile}
         component={SocialProfile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.DetailPost}
+        component={DetailPost}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

@@ -16,20 +16,23 @@ import * as AllCompo from '../../Components/index';
 import SignalData from '../../dummyData/SignalData';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native';
+import ThemeContext from '../../themes/ThemeContext';
+import {useContext} from 'react';
 
 function Signals(props) {
   const [selected, setSelected] = useState('Tracked');
   const [searchText, setSearchText] = useState('');
   const navigation = useNavigation();
+  const {theme, toggleTheme} = useContext(ThemeContext);
 
   const trackData = TrackedData.Tracked;
   const shortTermData = SignalData.ShortTerm;
   const longTermData = SignalData.LongTerm;
   const archivedData = SignalData.Archived;
-
+  console.log('theme', theme);
   return (
     <SafeAreaView style={{flex: 1}}>
-      <View style={styles.container}>
+      <View style={[styles.container, {backgroundColor: theme.background}]}>
         <HeaderCompo
           searchText={searchText}
           setSearchText={setSearchText}
@@ -66,7 +69,6 @@ function Signals(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.theme,
   },
   trackedContainer: {
     flex: 1,
